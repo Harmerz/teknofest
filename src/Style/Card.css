@@ -1,0 +1,10 @@
+.card-pertama{
+    width: 422px;
+    height: 260px;
+    background: #FFFFFF;
+    /* border: 2px solid #FFFFFF; */
+    box-sizing: border-box;
+    border-radius: 5px;
+    margin: 14px 5px 0px 5px;
+    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.25));
+}

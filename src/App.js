@@ -1,23 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Statusbaru from './Component/statusbar'
+// import Haikal from './Component/haikal';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="flex-row">
+      <Statusbaru/>
+      <div class="flex-column"></div>
     </div>
   );
 }
