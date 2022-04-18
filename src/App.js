@@ -4,6 +4,10 @@ import Statusbaru from './Component/statusbar'
 import Card_pertama from './Component/cardpertama';
 import Gps from './Component/gps';
 import Status_container from './Component/status_container';
+import Status_payload from './Component/status_payload';
+import Gyro from './Component/gyro';
+import Card_kedua from './Component/cardkedua';
+import Raw from './Component/raw';
 // import Haikal from './Component/haikal';
 function App() {
   return (
@@ -22,7 +26,23 @@ function App() {
             <Card_pertama/>
           </div>
         </div>
-       
+      </div>
+
+
+      <div class="flex-column" id="gyro-raw">
+      <Status_payload/>
+      <Gyro/>
+      <div class="flex-column">
+          <div class="flex-row">
+            <Card_kedua/>
+            <Card_kedua/>
+          </div>
+          <div class="flex-row">
+            <Card_kedua/>
+            <Card_kedua/>
+          </div>
+        </div>
+        <Raw/>
       </div>
     </div>
   );
