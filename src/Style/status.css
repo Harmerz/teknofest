@@ -7,7 +7,7 @@
     box-sizing: border-box;
     border-radius: 5px;
     margin-left: 5px;
-    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.32));
 }
 #status-payload{
     width: 850px;
@@ -17,12 +17,12 @@
     box-sizing: border-box;
     border-radius: 5px;
     margin-left: 5px;
-    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.25));
+    filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.32));
 }
 
 
 #status-container{
-    /* padding: 0px 53px 0px 53px; */
+    /* padding: x`0px 53px 0px 53px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,10 +32,10 @@
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    background-color: #FF5252;
+    background-color: #FF5322;
     margin: 0px 3px;
 }
-.tulisan-status{
+/* .tulisan-status{
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -43,7 +43,7 @@
     line-height: 12px;
     text-align: center;
     color: #000000;
-}
+} */
 #tulisan-status div p{
     /* margin: 0px; */
     font-family: 'Roboto';
@@ -77,7 +77,7 @@
 .garis-container{
     width: 127px;
     height: 0px;
-    border: 1px solid #FF5252;
+    border: 1px solid #FF5322;
     margin: 4px 3px 0px 3px;
     /* margin-top: 51px; */
 }
@@ -85,13 +85,15 @@
 
 
 #status-payload{
-    padding: 0px 53px 0px 53px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .garis-payload{
     width: 159px;
     height: 0px;
     border: 1px solid #96A0FF;
-    margin: 51px 3px 0px 3px;
+    margin: 4px 3px 0px 3px;
     /* margin-top: 51px; */
 }
 .ellipse-payload{
@@ -99,5 +101,35 @@
     height: 9px;
     border-radius: 50%;
     background-color: #96A0FF;
-    margin: 47px 3px 0px 3px;
+    margin: 0px 3px;
+}
+#tulisan-status-payload div p{
+    /* margin: 0px; */
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    /* margin: 0 45px; */
+    color: #000000;
+    width: 50px;
+}
+#tulisan-status-payload div{
+    height: 17px;
+}
+#Standby-Payload{
+    margin: 5px 132px 0 0;
+}
+#Released-Payload{
+    margin: 5px 132px 0 0;
+}
+#Hovering-Payload{
+    margin: 5px 132px 0 0;
+}
+#Descent-Payload{
+    margin: 5px 132px 0 0;
+}
+#Landed-Payload{
+    margin: 5px 0px 0 0;
 }

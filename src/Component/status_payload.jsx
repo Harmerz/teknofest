@@ -3,8 +3,8 @@ import '../Style/status.css'
 
 const Status_payload = () => {
     return(
-      <div id="status-payload">
-        <div>
+      <div class="flex-column" id="status-payload">
+          <div>
           <div class="flex-row">
             <div class="flex-column">
               <div class="ellipse-payload"></div>
@@ -31,16 +31,17 @@ const Status_payload = () => {
             </div>
 
           </div>
-          <div class="flex-row" id="tulisan-status">
-            <div><p>Stand By</p></div>
-            <div><p>Released</p></div>
-            <div><p>Hovering</p></div>
-            <div><p>Descent</p></div>
-            <div><p>Landed</p></div>
-          </div>
         </div>
         
+          <div class="flex-row" id="tulisan-status-payload">
+            <div><p id="Standby-Payload">Stand By</p></div>
+            <div><p id="Released-Payload">Released</p></div>
+            <div><p id="Hovering-Payload">Hovering</p></div>
+            <div><p id="Descent-Payload">Descent</p></div> 
+            <div><p id="Landed-Payload">Landed</p></div>
+          </div>
       </div>
+        
     )
 }
 export default Status_payload;
