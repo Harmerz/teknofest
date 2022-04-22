@@ -47,23 +47,16 @@ const Statusbaru = () =>{
             <input type="checkbox"/>
             <span class="slider round"></span>
           </label>
-          <p>Simulation Mode</p>
-          <label class="switch">
-            <input type="checkbox"/>
-            <span class="slider round"></span>
-          </label>
-          <div class="button" id="activate">Activate</div>
+         
           <p>Set UTC Time</p>
           <div class="button2">Set</div>
           <p>Manual Release</p>
           <div class="button2">Release</div>
           <p>Reset Memory</p>
           <div class="button2">Reset</div>
-          <p>Download CSV</p>
-          <div class="flex-row" id="download-csv">
-            <div class="button1" id="download-sp">SP</div>
-            <div class="button1" id="download-c">C</div>
-          </div>
+          <p>CSV</p>
+          <div class="button2">Download</div>
+          
           
         </div>
       </div>
