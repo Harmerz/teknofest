@@ -1,7 +1,7 @@
 import React from "react";
 import '../Style/status.css'
 
-const Status_payload = () => {
+const StatusPayload = () => {
     return(
       <div class="flex-column" id="status-payload">
           <div>
@@ -44,4 +44,4 @@ const Status_payload = () => {
         
     )
 }
-export default Status_payload;
+export default StatusPayload;

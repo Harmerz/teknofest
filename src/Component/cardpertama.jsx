@@ -1,9 +1,9 @@
 import React from "react";
 import '../Style/Card.css'
-const Card_pertama = () =>{
+const CardPertama = () =>{
     return(
         <div class="card-pertama"></div>
     )
 }
 
-export default Card_pertama;
+export default CardPertama;

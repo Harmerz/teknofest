@@ -1,7 +1,7 @@
 import React from "react";
 import '../Style/status.css'
 
-const Status_container = () =>{
+const StatusContainer = () =>{
     return(
     <div class="flex-column" id="status-container">
       <div id="dalam-container">
@@ -49,4 +49,4 @@ const Status_container = () =>{
   )
 }
 
-export default Status_container;
+export default StatusContainer;

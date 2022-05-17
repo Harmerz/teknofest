@@ -1,52 +1,53 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Statusbaru from './Component/statusbar'
-import Card_pertama from './Component/cardpertama';
-import Gps from './Component/gps';
-import Status_container from './Component/status_container';
-import Status_payload from './Component/status_payload';
+import CardPertama from './Component/cardpertama';
+import GPS from './Component/gps';
+import StatusContainer from './Component/status_container';
+import StatusPayload from './Component/status_payload';
 import Gyro from './Component/gyro';
-import Card_Kedua from './Component/cardkedua';
+import CardKedua from './Component/cardkedua';
 import Raw from './Component/raw';
 // import '../Style/Card.css'
 import Grafik from './Component/Data/grafik';
 import RawData, { isibagi } from './Component/Data/raw';
-import {gyro,pressure,temperature,Voltage,Descentrate,Spinrate,altitudeDifference,altitude} from './Component/Data/datain';
-import {updatealtitude,updatealtitudedifference,updatedescentrate,updategyro,updatepressure,updatespinrate,updatetemperature,updatevoltage} from './Component/Data/datain';
+import {GyroData,Pressure,Temperature,Voltage,Descentrate,Spinrate,AltitudeDifference,Altitude} from './Component/Data/datain';
+import {Updatealtitude,Updatealtitudedifference,Updatedescentrate,Updategyro,Updatepressure,Updatespinrate,Updatetemperature,Updatevoltage} from './Component/Data/datain';
 // import Haikal from './Component/haikal';
 RawData()
 function App() {
   return (
+    
     <div class="flex-row">
       <Statusbaru/>
       <div class="flex-column" id="map-video">
-        <Status_container/>
-        <Gps/>
+        <StatusContainer/>
+        <GPS/>
         <div class="flex-column">
           <div class="flex-row">
-            <Card_pertama/>
-            <div class="card-pertama"><Grafik Isidata={pressure} Updatedata={updatepressure} /></div>
+            <CardPertama/>
+            <div class="card-pertama"><Grafik Isidata={Pressure} Updatedata={Updatepressure} /></div>
             
           </div>
           <div class="flex-row">
-            <div class="card-pertama"><Grafik Isidata={altitude} Updatedata={updatealtitude} /></div>
-            <div class="card-pertama"><Grafik Isidata={altitudeDifference} Updatedata={updatealtitudedifference} /></div> 
+            <div class="card-pertama"><Grafik Isidata={Altitude} Updatedata={Updatealtitude} /></div>
+            <div class="card-pertama"><Grafik Isidata={AltitudeDifference} Updatedata={Updatealtitudedifference} /></div> 
           </div>
         </div>
       </div>
 
 
       <div class="flex-column" id="gyro-raw">
-      <Status_payload/>
+      <StatusPayload/>
       <Gyro/>
       <div class="flex-column">
           <div class="flex-row">
-            <Card_Kedua Isidata={temperature} Updatedata={updatetemperature}/>
-            <Card_Kedua Isidata={Spinrate} Updatedata={updatespinrate}/>
+            <CardKedua Isidata={Temperature} Updatedata={Updatetemperature}/>
+            <CardKedua Isidata={Spinrate} Updatedata={Updatespinrate}/>
           </div>
           <div class="flex-row">
-            <Card_Kedua Isidata={Voltage} Updatedata={updatevoltage}/>
-            <Card_Kedua Isidata={Descentrate} Updatedata={updatedescentrate}/>
+            <CardKedua Isidata={Voltage} Updatedata={Updatevoltage}/>
+            <CardKedua Isidata={Descentrate} Updatedata={Updatedescentrate}/>
           </div>
         </div>
         <Raw/>
@@ -55,6 +56,6 @@ function App() {
   );
 }
 setInterval(function(){
-  console.log(updatealtitude);
+  console.log(Updatealtitude);
 },1000)
 export default App;

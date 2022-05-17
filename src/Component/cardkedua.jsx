@@ -2,12 +2,12 @@ import React from "react";
 import '../Style/Card.css'
 import Grafik from "./Data/grafik";
 
-const Card_Kedua = (cardprops) => {
+const CardKedua = (CardProps) => {
     return(
         <div class="card-kedua">
 
-                <Grafik Isidata={cardprops.Isidata} Updatedata={cardprops.Updatedata} />
+                <Grafik Isidata={CardProps.Isidata} Updatedata={CardProps.Updatedata} />
         </div>
     )
 }
-export default Card_Kedua;
+export default CardKedua;
