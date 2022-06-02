@@ -55,7 +55,7 @@ function App() {
     </div>
   );
 }
-setInterval(function(){
-  console.log(Updatealtitude);
-},1000)
+// setInterval(function(){
+//   console.log(Updatealtitude);
+// },1000)
 export default App;
