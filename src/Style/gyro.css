@@ -9,3 +9,8 @@
     margin-left: 5px;
     filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.25));
 }
+
+#grafikgyro{
+    width: 480px;
+    height: 300px;
+}

@@ -15,8 +15,10 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-leaflet": "^4.0.0",
+    "react-obj": "^1.0.3",
     "react-scripts": "5.0.1",
     "recharts": "^2.1.9",
+    "three": "^0.141.0",
     "typescript": "^4.6.4",
     "web-vitals": "^2.1.4"
   },
@@ -45,6 +47,7 @@
     ]
   },
   "devDependencies": {
-    "@types/leaflet": "^1.7.10"
+    "@types/leaflet": "^1.7.10",
+    "webpack-obj-loader": "^1.0.4"
   }
 }

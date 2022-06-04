@@ -38,9 +38,9 @@ function App() {
 
 
       <div class="flex-column" id="gyro-raw">
-      <StatusPayload/>
-      <Gyro/>
-      <div class="flex-column">
+        <StatusPayload/>
+        <Gyro Isidata={GyroData} Updatedata={Updategyro}/>
+        <div class="flex-column">
           <div class="flex-row">
             <CardKedua Isidata={Temperature} Updatedata={Updatetemperature}/>
             <CardKedua Isidata={Spinrate} Updatedata={Updatespinrate}/>
