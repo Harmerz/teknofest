@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 // import ReactDOM from "react-dom";
 import * as THREE from 'three';
-import {OBJLoader} from "three/examples/jsm/loaders/OBJLoader";
+import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import Grafik from "./Data/grafik";
 import '../Style/gyro.css';
 
 const style = {
     width: 347,
     height: 365,
-    // background: #FFFFFF,
+    // background: red,
 };
 
 class TigaDimensi extends Component {
@@ -17,7 +17,7 @@ class TigaDimensi extends Component {
         this.addLights();
         this.loadTheModel();
         this.startAnimationLoop();
-        window.addEventListener('resize', this.handleWindowResize);
+        // window.addEventListener('resize', this.handleWindowResize);
     }
 
     sceneSetup = () => {
@@ -45,26 +45,31 @@ class TigaDimensi extends Component {
     // https://threejs.org/docs/#examples/en/loaders/OBJLoader
     loadTheModel = () => {
         // instantiate a loader
-        const loader = new OBJLoader();
+        this.scene.background = new THREE.Color( 0xE9ECEB );
+        const loader = new GLTFLoader();
         const modelLh = new THREE.Object3D();
+        
         // var scene = new THREE.Scene(); // initialising the scene
         // this.scene.background = new THREE.Color( 0xFFFFFF);
         // load a resource
         loader.load(
             // resource URL relative to the /public/index.html of the app
-            'Payload.obj',
+            'Test_payload.gltf',
             // called when resource is loaded
-            ( object ) => {
-                const box = new THREE.Box3( ).setFromObject( object );
+            ( gltf ) => {
+                // this.scene.add(gltf.scene);
+                const box = new THREE.Box3( ).setFromObject( gltf.scene );
                 const c = box.getCenter( new THREE.Vector3( ) );
                 const size = box.getSize( new THREE.Vector3( ) );
-                object.position.set( -c.x, (size.y / 2 - c.y)-50, -c.z ); // center the gltf scene
-                modelLh.add( object );
+                gltf.scene.position.set( -c.x, (size.y / 2 - c.y)-50, -c.z ); // center the gltf scene
+                modelLh.add( gltf.scene );
                 modelLh.rotation.x = -23.5;
                 const axesHelper = new THREE.AxesHelper( 500 );
                 this.scene.add( modelLh );
                 const el = this.scene.getObjectByName("");
                 this.model = el;
+                console.log(this.scene);
+                console.log("Jalan");   
             },
         );
     };
@@ -94,7 +99,7 @@ class TigaDimensi extends Component {
         this.scene.rotateY(0.005);
         this.scene.rotateX(0.005);
         this.scene.rotateZ(0.005);
-        console.log();
+        // console.log("Jalan");
 
         this.renderer.render( this.scene, this.camera );
 
