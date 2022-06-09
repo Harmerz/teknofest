@@ -4,6 +4,7 @@ import * as THREE from 'three';
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import Grafik from "./Data/grafik";
 import '../Style/gyro.css';
+import { ZAxis } from "recharts";
 
 const style = {
     width: 347,
@@ -57,7 +58,7 @@ class TigaDimensi extends Component {
             'Test_payload.gltf',
             // called when resource is loaded
             ( gltf ) => {
-                // this.scene.add(gltf.scene);
+                this.scene.add(gltf.scene);
                 const box = new THREE.Box3( ).setFromObject( gltf.scene );
                 const c = box.getCenter( new THREE.Vector3( ) );
                 const size = box.getSize( new THREE.Vector3( ) );
@@ -65,12 +66,13 @@ class TigaDimensi extends Component {
                 modelLh.add( gltf.scene );
                 modelLh.rotation.x = -23.5;
                 const axesHelper = new THREE.AxesHelper( 500 );
+                this.scene.add(axesHelper);
                 this.scene.add( modelLh );
                 const el = this.scene.getObjectByName("");
                 this.model = el;
-                console.log(this.scene);
-                console.log("Jalan");  
-                // this.scene.rotateZ(180); 
+                var x = 180;
+                this.scene.rotateZ(x*Math.PI/180);//rotate degree to radians just change the x axis
+                console.log(this.scene.rotation.z);
             },
         );
     };
@@ -96,9 +98,10 @@ class TigaDimensi extends Component {
 
     startAnimationLoop = () => {
 
-        this.scene.rotateY(0.005);
-        this.scene.rotateX(0.005);
-        this.scene.rotateZ(0.005);
+        // this.scene.rotateY(0.005);
+        // this.scene.rotateX(0.005);
+        // this.scene.rotateZ(1);
+        // console.log(this.scene.rotateZ);
 
         this.renderer.render( this.scene, this.camera );
 
