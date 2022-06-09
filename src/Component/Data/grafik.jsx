@@ -11,6 +11,7 @@ const Grafik= (props) => {
     },
     xAxis: [
       {
+        //Waktu terkini dari grafik yang dimaksud
         type: 'category',
         data: (function (){
           let now = new Date();
@@ -44,6 +45,7 @@ const Grafik= (props) => {
     const axisData = (new Date()).toLocaleTimeString().replace(/^\D*/,'');
     const newOption = cloneDeep(option); // immutable
     
+    //delete waktu lama dan input waktu terbaru
     newOption.xAxis[0].data.shift();
     newOption.xAxis[0].data.push(axisData);
 
@@ -53,7 +55,7 @@ const Grafik= (props) => {
         data0.push(props.Updatedata[0]);
     }
 
-    
+    //Jika grafik terdapat lebih dari satu fungsi
     
     if(props.Updatedata.length>1){
       const data1 = newOption.series[1].data;

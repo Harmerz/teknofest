@@ -69,7 +69,8 @@ class TigaDimensi extends Component {
                 const el = this.scene.getObjectByName("");
                 this.model = el;
                 console.log(this.scene);
-                console.log("Jalan");   
+                console.log("Jalan");  
+                // this.scene.rotateZ(180); 
             },
         );
     };
@@ -94,12 +95,10 @@ class TigaDimensi extends Component {
     };
 
     startAnimationLoop = () => {
-        // slowly rotate an object
-        // if (this.model) this.model.rotation.y += 0.005;
+
         this.scene.rotateY(0.005);
         this.scene.rotateX(0.005);
         this.scene.rotateZ(0.005);
-        // console.log("Jalan");
 
         this.renderer.render( this.scene, this.camera );
 

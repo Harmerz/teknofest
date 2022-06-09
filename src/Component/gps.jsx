@@ -1,8 +1,9 @@
-import React, {Component, useState, useMemo} from "react";
+import React, {Component, useState} from "react";
 import '../Style/gps.css'
-import { MapContainer, TileLayer, Circle, useMap, useMapEvents, Marker, Popup, CircleMarker} from 'react-leaflet'
+import { MapContainer, TileLayer,useMapEvents, Marker, Popup, CircleMarker} from 'react-leaflet'
 import { isibagi } from "./Data/raw";
-import { set } from "lodash";
+import 'leaflet.offline'
+// import { set } from "lodash";
 
 
 const fillBlueOptions = { fillColor: '#96A0FF' }
