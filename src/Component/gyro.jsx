@@ -58,20 +58,20 @@ class TigaDimensi extends Component {
             'Test_payload.gltf',
             // called when resource is loaded
             ( gltf ) => {
-                this.scene.add(gltf.scene);
+                // this.scene.add(gltf.scene);
                 const box = new THREE.Box3( ).setFromObject( gltf.scene );
                 const c = box.getCenter( new THREE.Vector3( ) );
                 const size = box.getSize( new THREE.Vector3( ) );
-                gltf.scene.position.set( -c.x, (size.y / 2 - c.y)-50, -c.z ); // center the gltf scene
+                gltf.scene.position.set( -c.x, ((size.y / 2) - c.y)-50, -c.z ); // center the gltf scene
                 modelLh.add( gltf.scene );
-                modelLh.rotation.x = -23.5;
+                modelLh.rotateX(90*Math.PI/180);
                 const axesHelper = new THREE.AxesHelper( 500 );
-                this.scene.add(axesHelper);
+                // this.scene.add( axesHelper );
                 this.scene.add( modelLh );
                 const el = this.scene.getObjectByName("");
                 this.model = el;
-                var x = 180;
-                this.scene.rotateZ(x*Math.PI/180);//rotate degree to radians just change the x axis
+                // var x = 180;
+                // this.scene.rotateX(x*Math.PI/180);//rotate degree to radians just change the x axis
                 console.log(this.scene.rotation.z);
             },
         );
@@ -98,9 +98,9 @@ class TigaDimensi extends Component {
 
     startAnimationLoop = () => {
 
-        // this.scene.rotateY(0.005);
-        // this.scene.rotateX(0.005);
-        // this.scene.rotateZ(1);
+        this.scene.rotateY(0.005);
+        this.scene.rotateX(0.005);
+        this.scene.rotateZ(0.005);
         // console.log(this.scene.rotateZ);
 
         this.renderer.render( this.scene, this.camera );
