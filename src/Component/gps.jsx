@@ -2,8 +2,6 @@ import React, {Component, useState} from "react";
 import '../Style/gps.css'
 import { MapContainer, TileLayer,useMapEvents, Marker, Popup, CircleMarker} from 'react-leaflet'
 import { isibagi } from "./Data/raw";
-// import 'leaflet.offline';
-// import { set } from "lodash";
 
 
 const fillBlueOptions = { fillColor: '#96A0FF' }
@@ -30,9 +28,10 @@ function LocationMarker(props) {
     const map = useMapEvents({
         click() {
           map.locate()
+          
         },
         locationfound(e) {
-        //   setPosition(e.latlng)
+          setPosition(e.latlng)
         //   console.log(props.tes[1], 12)
           map.fitBounds(props.tes)
         },
@@ -73,10 +72,10 @@ class GPS extends Component {
 
     tick() {
     this.setState({
-        container_lat: isibagi.gps2_latitude,
-        container_long:  isibagi.gps2_longitude,
-        payload_lat: isibagi.gps1_latitude,
-        payload_long: isibagi.gps1_longitude,
+        container_lat: isibagi.gps2_latitude.toFixed(6),
+        container_long:  isibagi.gps2_longitude.toFixed(6),
+        payload_lat: isibagi.gps1_latitude.toFixed(6),
+        payload_long: isibagi.gps1_longitude.toFixed(6),
         thisbound : [
                         [isibagi.gps2_latitude, isibagi.gps2_longitude],
                         [isibagi.gps1_latitude, isibagi.gps1_longitude]

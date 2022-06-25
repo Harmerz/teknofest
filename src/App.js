@@ -55,12 +55,12 @@ function App() {
         <Gyro Isidata={GyroData} Updatedata={Updategyro}/>
         <div class="flex-column">
           <div class="flex-row">
-            <CardKedua Isidata={Temperature} Updatedata={Updatetemperature}/>
-            <CardKedua Isidata={Spinrate} Updatedata={Updatespinrate}/>
+            <CardKedua Logo={TemperatureLogo} Nama="TEMPERATURE" Isidata={Temperature} Updatedata={Updatetemperature}/>
+            <CardKedua Logo={SpiningLogo} Nama="SPIN RATE" Isidata={Spinrate} Updatedata={Updatespinrate}/>
           </div>
           <div class="flex-row">
-            <CardKedua Isidata={Voltage} Updatedata={Updatevoltage}/>
-            <CardKedua Isidata={Descentrate} Updatedata={Updatedescentrate}/>
+            <CardKedua Logo={VoltLogo} Nama="VOLTAGE" Isidata={Voltage} Updatedata={Updatevoltage}/>
+            <CardKedua Logo={DescentLogo} Nama="DESCENT RATE" Isidata={Descentrate} Updatedata={Updatedescentrate}/>
           </div>
         </div>
         <Raw/>

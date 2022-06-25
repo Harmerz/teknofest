@@ -45,6 +45,17 @@ class CardPertama extends Component {
     render() {
       return (
         <div class="card-kedua">
+             <div className="flex-row header">
+            <div className="flex-row header-penjelasan">
+                <img src={this.props.Logo} height="20px" alt="logo" />
+                <span className="nama">
+                    {this.props.Nama}
+                </span>
+            </div>
+            <div className="text">
+                {this.props.Updatedata[0]}
+            </div>
+        </div>
             <div className="grafik-kedua">
                 <Grafik Isidata={this.props.Isidata} Updatedata={this.state.full}  />
             </div>

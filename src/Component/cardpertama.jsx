@@ -5,8 +5,42 @@ import React,{Component} from "react";
 import '../Style/Card.css'
 import Grafik from "./Data/grafik";
 import Altitude from '../SVG/Altitude.svg'
+const Header = ()=>{
+    return(
+        <div>
+            <div className="updatedata flex-column ">
+                <div className="containerbox flex-row">
+                    <div className="box-container"></div>
+                    <div className="namebox">
+                        Container
+                    </div>
+                </div>
+                <div className="payloadbox flex-row">
+                    <div className="box-payload"></div>
+                    <div className="namebox">
+                        Science Payload
+                    </div>
+                </div>
+            </div>
+            <div className="flex-column">
+                <div className="text">
+                    {this.props.Updatedata[0]}
+                </div>
+                <div className="text">
+                    {this.props.Updatedata[1]}
+                </div>
+            </div>
+        </div>
+        
+    );
+}
+
+
+
 
 class CardPertama extends Component {
+
+    
 
     constructor(props) {
       super(props);
@@ -30,44 +64,60 @@ class CardPertama extends Component {
         });
         }
     render() {
+        let dua = false;
+        if(this.props.Updatedata.length>1){
+            dua = true;
+        }else{
+            dua = false;
+        }
       return (
         <div class="card-pertama">
-                <div>
-                    <div className="flex-row header">
-                        <div className="flex-row header-penjelasan">
-                            <img src={this.props.Logo} height="20px" alt="logo"/>
-                            <span className="nama">
-                                {this.props.Nama}
-                            </span>
-                        </div>
-                        <div className="updatedata flex-column ">
-                            <div className="containerbox flex-row">
-                                <div className="box-container"></div>
-                                <div className="namebox">
-                                    Container
-                                </div>
-                            </div>
-                            <div className="payloadbox flex-row">
-                                <div className="box-payload"></div>
-                                <div className="namebox">
-                                    Science Payload
-                                </div>
-                            </div>
-                        </div>  
-                        <div className="flex-column">
-                            <div className="text">
-                                {this.props.Updatedata[0]}
-                            </div>
-                            <div className="text">
-                                {this.props.Updatedata[1]}
-                            </div>
+            {dua?<div className="flex-row header">
+                <div className="flex-row header-penjelasan">
+                    <img src={this.props.Logo} height="20px" alt="logo" />
+                    <span className="nama">
+                        {this.props.Nama}
+                    </span>
+                </div>
+                <div className="updatedata flex-column ">
+                    <div className="containerbox flex-row">
+                        <div className="box-container"></div>
+                        <div className="namebox">
+                            Container
                         </div>
                     </div>
-                    <div className="grafik-pertama">
-                        <Grafik Isidata={this.props.Isidata} Updatedata={this.state.full} />
+                    <div className="payloadbox flex-row">
+                        <div className="box-payload"></div>
+                        <div className="namebox">
+                            Science Payload
+                        </div>
+                    </div>
+                </div>
+                <div className="flex-column">
+                    <div className="text">
+                        {this.props.Updatedata[0]}
+                    </div>
+                    <div className="text">
+                        {this.props.Updatedata[1]}
                     </div>
                 </div>
             </div>
+            : <div className="flex-row header">
+            <div className="flex-row header-penjelasan">
+                <img src={this.props.Logo} height="20px" alt="logo" />
+                <span className="nama">
+                    {this.props.Nama}
+                </span>
+            </div>
+            <div className="text">
+                {this.props.Updatedata[0]}
+            </div>
+        </div>
+            }
+            <div className="grafik-pertama">
+                <Grafik Isidata={this.props.Isidata} Updatedata={this.state.full} />
+            </div>
+        </div>
       );
     }
   }

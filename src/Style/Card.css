@@ -37,6 +37,7 @@
 .header{
     z-index: 1;
     position: absolute;
+    margin-top: 20px;
 }
 #tulisan{
     margin: 0,0,0,0;
@@ -69,7 +70,7 @@
     color: #000000;
 }
 .text{
-    width: 50px;
+    width: 60px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -78,6 +79,7 @@
     text-align: right;
     color: #000000;
     align-items: right;
+    margin: auto;
 }
 .box-container{
     width: 14.24px;
