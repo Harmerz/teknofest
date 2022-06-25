@@ -1,17 +1,3 @@
-// import React from "react";
-// import '../Style/Card.css'
-// import Grafik from "./Data/grafik";
-
-// const CardKedua = (CardProps) => {
-//     return(
-//         <div class="card-kedua">
-
-//                 <Grafik Isidata={CardProps.Isidata} Updatedata={CardProps.Updatedata} />
-//         </div>
-//     )
-// }
-// export default CardKedua;
-
 
 import { render } from "@testing-library/react";
 import { update } from "lodash";
@@ -20,7 +6,7 @@ import '../Style/Card.css'
 import Grafik from "./Data/grafik";
 import Altitude from '../SVG/Altitude.svg'
 
-class CardPertama extends Component {
+class Example extends Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -44,12 +30,8 @@ class CardPertama extends Component {
         }
     render() {
       return (
-        <div class="card-kedua">
-            <div className="grafik-kedua">
-                <Grafik Isidata={this.props.Isidata} Updatedata={this.state.full}  />
-            </div>
-            
-                {/* <div>
+        <div class="card-pertama">
+                <div>
                     <div className="flex-row header">
                         <div className="flex-row header-penjelasan">
                             <img src={Altitude} height="20px" alt="logo"/>
@@ -58,13 +40,13 @@ class CardPertama extends Component {
                             </span>
                         </div>
                         <div className="updatedata">
-                            { {this.state.data_2} }
+                            {/* {this.state.data_2} */}
                         </div>  
                     </div>
                     <div className="grafik">
-                        <Grafik Isidata={this.props.Isidata} Updatedata={this.state.full} />
+                        <Grafik Isidata={this.props.Isidata} Updatedata={this.state.full } />
                     </div>
-                </div> */}
+                </div>
             </div>
       );
     }
@@ -73,4 +55,4 @@ class CardPertama extends Component {
 
 
 
-export default CardPertama;
+export default Example;

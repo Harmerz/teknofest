@@ -65,7 +65,7 @@ class TigaDimensi extends Component {
                 modelLh.add( gltf.scene );
                 modelLh.rotation.x = -23.5;
                 const axesHelper = new THREE.AxesHelper( 500 );
-                this.scene.add( modelLh );
+                this.scene.add( modelLh  );
                 const el = this.scene.getObjectByName("");
                 this.model = el;
                 console.log(this.scene);
@@ -125,16 +125,41 @@ class TigaDimensi extends Component {
     }
 }
 
-const Gyro = (Props) => {
-    return (
-        <div id="gyro" className="flex-row">
+class Gyro extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+          data_1 : props.Updatedata[0],
+          data_2 : props.Updatedata[1],
+          data_3 : props.Updatedata[2],
+          full : props.Updatedata,
+        };
+      }
+      componentDidMount() {
+          setInterval(
+              () => this.tick(),
+              1000
+          );
+          }
+      tick() {
+          this.setState({
+              data_1 : this.props.Updatedata[0],
+              data_2 : this.props.Updatedata[1],
+              data_3 : this.props.Updatedata[2],
+              full : this.props.Updatedata,
+          });
+          }
+      render() {
+        return (
+            <div id="gyro" className="flex-row">
             
             <div id="grafikgyro">
-                <Grafik Isidata={Props.Isidata} Updatedata={Props.Updatedata}/>
+                <Grafik Isidata={this.props.Isidata} Updatedata={this.props.Updatedata}/>
             </div>
             <TigaDimensi/>
         </div>
-    );
+        );
+      }
 }
 
 

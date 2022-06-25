@@ -8,14 +8,29 @@ import Gyro from './Component/gyro';
 import CardKedua from './Component/cardkedua';
 import Raw from './Component/raw';
 import RawData, { isibagi } from './Component/Data/raw';
-import AltitudeLogo from './LOGO SVG/Altitude.svg';
+// import AltitudeLogo from './LOGO SVG/Altitude.svg';
 import {GyroData,Pressure,Temperature,Voltage,Descentrate,Spinrate,AltitudeDifference,Altitude} from './Component/Data/datain';
 import {Updatealtitude,Updatealtitudedifference,Updatedescentrate,Updategyro,Updatepressure,Updatespinrate,Updatetemperature,Updatevoltage} from './Component/Data/datain';
 import Video from './Component/video';
+import Example from './Component/example';
+
+import AltitudeLogo from './SVG/Altitude.svg';
+import DescentLogo from './SVG/Descent.svg';
+import GyroLogo from './SVG/Gyro.svg';
+import MapLogo from './SVG/map.svg';
+import PressureLogo from './SVG/Pressure.svg';
+import RawLogo from './SVG/Raw.svg';
+import SpiningLogo from './SVG/Spining.svg';
+import TemperatureLogo from './SVG/Temperature.svg';
+import VoltLogo from './SVG/Volt.svg';
+
+
+
+
 RawData()
 function App() {
   return (
-    
+    // <Example  Isidata={AltitudeDifference} Updatedata={Updatealtitudedifference}/>
     <div class="flex-row">
       <Statusbaru/>
       <div class="flex-column" id="map-video">
@@ -24,12 +39,12 @@ function App() {
         <div class="flex-column">
           <div class="flex-row">
             <Video/>
-            <CardPertama Isidata={Pressure} Updatedata={Updatepressure} />
+            <CardPertama Logo={PressureLogo} Nama="PRESSURE" Isidata={Pressure} Updatedata={Updatepressure} />
             
           </div>
           <div class="flex-row">
-            <CardPertama Isidata={Altitude} Updatedata={Updatealtitude} />
-            <CardPertama Isidata={AltitudeDifference} Updatedata={Updatealtitudedifference} />
+            <CardPertama Logo={AltitudeLogo} Nama="ALTITUDE" Isidata={Altitude} Updatedata={Updatealtitude} />
+            <CardPertama Logo={AltitudeLogo} Nama="ALTITUDE DIFFERENCE" Isidata={AltitudeDifference} Updatedata={Updatealtitudedifference} />
           </div>
         </div>
       </div>
@@ -50,7 +65,7 @@ function App() {
         </div>
         <Raw/>
       </div>
-    </div>
+    // </div>
   );
 }
 // setInterval(function(){

@@ -20,6 +20,7 @@ let gps2_longitude = 110.373108;
 let packet = 0;
 let team_id = 376737;
     setInterval(function(){ 
+        
         var today = new Date();
         var date = String(today.getMonth() + 1).padStart(2, '0')+'/'+String(today.getDate()).padStart(2, '0')+'/'+today.getFullYear();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -28,7 +29,7 @@ let team_id = 376737;
         let pressure2 = rand();
         let altitude1 = rand();
         let altitude2 = rand();
-        let altitudediff = altitude1 - altitude2;
+        let altitudediff = Math.abs(altitude1 - altitude2).toFixed(2);
         let descent = rand();
         let temp = rand();
         let voltage = rand();
@@ -46,7 +47,6 @@ let team_id = 376737;
         let video_transfer="Yes";
         let contoh = team_id+","+packet+','+dateTime+','+pressure1+","+pressure2+","+altitude1+","+altitude2+","+altitudediff+","+descent+","+temp+","+voltage+","+gps1_latitude+","+gps1_longitude+","+gps1_altitude+","+gps2_latitude+","+gps2_longitude+","+gps2_altitude+","+status+","+pitch+","+roll+","+yaw+","+spinrate+","+video_transfer;
         packet++;
-        
         const bagi = contoh.split(",");
          isibagi = {
             // dateTime = date+','+time;
