@@ -2,7 +2,7 @@ import React, {Component, useState} from "react";
 import '../Style/gps.css'
 import { MapContainer, TileLayer,useMapEvents, Marker, Popup, CircleMarker} from 'react-leaflet'
 import { isibagi } from "./Data/raw";
-
+import MapLogo from '../SVG/map.svg';
 
 const fillBlueOptions = { fillColor: '#96A0FF' }
 const fillRedOptions = { fillColor: '#FF5252' }
@@ -27,21 +27,11 @@ function LocationMarker(props) {
     const [position, setPosition] = useState(null)
     const map = useMapEvents({
         click() {
-          map.locate()
-          
-        },
-        locationfound(e) {
-          setPosition(e.latlng)
-        //   console.log(props.tes[1], 12)
-          map.fitBounds(props.tes)
+            map.fitBounds(props.tes)
         },
       })
   
-    return position === null ? null : (
-      <Marker position={position}>
-        <Popup>You are here</Popup>
-      </Marker>
-    )
+    return 0;
   }
 
 class GPS extends Component {
@@ -89,27 +79,95 @@ class GPS extends Component {
     render(){
     // console.log([this.state.container_zoom]);
         return (
-        <div id="gps">
-            <div className="container">
-                <div>
-                    CONTAINER
+        <div id="gps" className="flex-column">
+            <div className="header-gps flex-row">
+                <div className="header-penjelasan-gps flex-row  ">
+                    <img src={MapLogo} height="30px" alt="logo" />
+                    <div className="textpenjelasan">
+                        GPS
+                    </div>
                 </div>
-                <div>
-                    lat : {this.state.container_lat}
+                <div className="container flex-column">
+                    <div className="flex-row judul-circle">
+                        <div className="circle"></div>
+                        <div className="text-container">
+                            CONTAINER
+                        </div>
+                    </div>
+                    <div className="penjelasan-gps flex-row">
+                        <div className="lat flex-column">
+                            <div>
+                                Lat
+                            </div>
+                            <div>
+                                {this.state.container_lat}
+                            </div>
+                        </div>
+                        <div className="long flex-column">
+                            <div>
+                                Long
+                            </div>
+                            <div>
+                                {this.state.container_long}
+                            </div>
+                        </div>
+                        <div className="alt flex-column">
+                            <div>
+                                Alt
+                            </div>
+                            <div>
+                                NAN
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    long : {this.state.container_long}
+                <div className="payload flex-column">
+                    <div className="flex-row judul-circle">
+                        <div className="circle-payload"></div>
+                        <div className="text-container">
+                            PAYLOAD
+                        </div>
+                    </div>
+                    <div className="penjelasan-gps flex-row">
+                        <div className="lat flex-column">
+                            <div>
+                                Lat
+                            </div>
+                            <div>
+                                {this.state.payload_lat}
+                            </div>
+                        </div>
+                        <div className="long flex-column">
+                            <div>
+                                Long
+                            </div>
+                            <div>
+                                {this.state.payload_long}
+                            </div>
+                        </div>
+                        <div className="alt flex-column">
+                            <div>
+                                Alt
+                            </div>
+                            <div>
+                                NAN
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <MapContainer center={[a,b]} zoom={18} scrollWheelZoom={true}>
-                <LocationMarker tes={this.state.thisbound}/>
-                <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <CircleMarker center={[this.state.container_lat, this.state.container_long]} fillOpacity="1" pathOptions={fillRedOptions}  color="#FF5252" radius={5} />
-                <CircleMarker center={[this.state.payload_lat, this.state.payload_long]} fillOpacity="1" pathOptions={fillBlueOptions} color="#96A0FF" radius={5} />
-            </MapContainer>
+            <div className="leaflef-container">
+                 <MapContainer center={[a,b]} zoom={18} scrollWheelZoom={true}>
+                    <LocationMarker tes={this.state.thisbound}/>
+                    <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <CircleMarker center={[this.state.container_lat, this.state.container_long]} fillOpacity="1" pathOptions={fillRedOptions}  color="#FF5252" radius={5} />
+                    <CircleMarker center={[this.state.payload_lat, this.state.payload_long]} fillOpacity="1" pathOptions={fillBlueOptions} color="#96A0FF" radius={5} />
+                </MapContainer>
+            </div>
+           
         </div>
     );
     }

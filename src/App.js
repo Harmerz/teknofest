@@ -17,7 +17,7 @@ import Example from './Component/example';
 import AltitudeLogo from './SVG/Altitude.svg';
 import DescentLogo from './SVG/Descent.svg';
 import GyroLogo from './SVG/Gyro.svg';
-import MapLogo from './SVG/map.svg';
+
 import PressureLogo from './SVG/Pressure.svg';
 import RawLogo from './SVG/Raw.svg';
 import SpiningLogo from './SVG/Spining.svg';

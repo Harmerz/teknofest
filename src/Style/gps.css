@@ -4,7 +4,6 @@
     height: 365px;
     background: #FFFFFF;
     /* border: 2px solid #FFFFFF; */
-    box-sizing: border-box;
     border-radius: 5px;
     margin-top: 14px;
     margin-left: 5px;
@@ -14,4 +13,86 @@
     width: 835px;
     height: 286px;
     margin: auto;
-  }
+}
+.flex-row{
+    display : flex;
+    flex-direction: row;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+.textpenjelasan{
+    margin: auto 0;
+}
+.header-penjelasan-gps{
+    width: 70px;
+    margin: 0 30px;
+}
+.header-gps{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}   
+.container{
+    margin: 0 30px;
+}
+.payload{
+    margin: 0 30px;
+}
+.circle{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #FF5252;
+}
+.circle-payload{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #96A0FF;
+}
+.text-container{
+    width: 67px;
+    height: 15px;
+    margin-left: 5px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    color: #000000;
+}
+.penjelasan-gps div{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #000000;
+}
+.lat{
+    margin-right: 35px;
+    display: flex;
+    align-items: center;
+}
+.long{
+    margin: 0 35px;
+    display: flex;
+    align-items: center;
+}
+.alt{
+    margin-left: 35px;
+    display: flex;
+    align-items: center;
+}
+.judul-circle{
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+.container{
+    width: 300px;
+}
+.payload{
+    width: 300px;
+}
