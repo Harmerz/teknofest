@@ -2,7 +2,7 @@ import React, {Component, useState} from "react";
 import '../Style/gps.css'
 import { MapContainer, TileLayer,useMapEvents, Marker, Popup, CircleMarker} from 'react-leaflet'
 import { isibagi } from "./Data/raw";
-import 'leaflet.offline'
+// import 'leaflet.offline';
 // import { set } from "lodash";
 
 
@@ -33,7 +33,7 @@ function LocationMarker(props) {
         },
         locationfound(e) {
         //   setPosition(e.latlng)
-          console.log(props.tes[1], 12)
+        //   console.log(props.tes[1], 12)
           map.fitBounds(props.tes)
         },
       })
@@ -99,7 +99,7 @@ class GPS extends Component {
                     lat : {this.state.container_lat}
                 </div>
                 <div>
-                    long {this.state.container_long}
+                    long : {this.state.container_long}
                 </div>
             </div>
             <MapContainer center={[a,b]} zoom={18} scrollWheelZoom={true}>

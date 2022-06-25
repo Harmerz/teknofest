@@ -48,7 +48,7 @@ const Grafik= (props) => {
     //delete waktu lama dan input waktu terbaru
     newOption.xAxis[0].data.shift();
     newOption.xAxis[0].data.push(axisData);
-
+    console.log(props.Updatedata);
     if(props.Updatedata.length>0){
     const data0 = newOption.series[0].data;
         data0.shift();
@@ -74,7 +74,7 @@ const Grafik= (props) => {
   useEffect(() => {
     const timer = setInterval(() => {
       fetchNewData();
-    }, 1000);
+    }, 500);
 
     return () => clearInterval(timer);
   });
