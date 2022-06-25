@@ -61,16 +61,18 @@ class TigaDimensi extends Component {
                 const box = new THREE.Box3( ).setFromObject( gltf.scene );
                 const c = box.getCenter( new THREE.Vector3( ) );
                 const size = box.getSize( new THREE.Vector3( ) );
-                gltf.scene.position.set( -c.x, (size.y / 2 - c.y)-50, -c.z ); // center the gltf scene
+                gltf.scene.position.set( -c.x, ((size.y / 2) - c.y)-50, -c.z ); // center the gltf scene
                 modelLh.add( gltf.scene );
-                modelLh.rotation.x = -23.5;
+                modelLh.rotateX(90*Math.PI/180);
                 const axesHelper = new THREE.AxesHelper( 500 );
-                this.scene.add( modelLh  );
+
+                // this.scene.add( axesHelper );
+                this.scene.add( modelLh );
                 const el = this.scene.getObjectByName("");
                 this.model = el;
-                console.log(this.scene);
-                console.log("Jalan");  
-                // this.scene.rotateZ(180); 
+                // var x = 180;
+                // this.scene.rotateX(x*Math.PI/180);//rotate degree to radians just change the x axis
+                console.log(this.scene.rotation.z);
             },
         );
     };
