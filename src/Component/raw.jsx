@@ -2,6 +2,7 @@ import { render } from "@testing-library/react";
 import React, {Component} from "react";
 import '../Style/raw.css'
 import { raw_data } from "./Data/raw";
+import RawLogo from '../SVG/Raw.svg';
 class Raw extends Component{
     constructor (props) {
         super(props);
@@ -17,19 +18,7 @@ class Raw extends Component{
            
             1000
         );
-        setInterval(
-            () => 
-            //   console.log(this.state.data.length),
-              1000
-        );
         }
-        // setInterval(function() {
-        //     console.log(this.state.data.length),
-        // },1000)
-        
-        // componentWillUnmount() {
-        //   clearInterval(this.timerID);
-        // }
         
         tick() {
         this.setState({
@@ -42,6 +31,12 @@ class Raw extends Component{
     render(){
         return(
             <div id="raw">
+                <div className="header-raw flex-row">
+                    <img src={RawLogo} height="25px" alt="Logo" className="logo-raw"/>
+                    <div className="tulisan-raw">
+                        RAW DATA
+                    </div>
+                </div>
                 <div className="Isiandata">{this.state.data}</div>
             </div>
         );

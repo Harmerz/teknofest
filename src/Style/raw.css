@@ -11,14 +11,30 @@
 }
 .Isiandata{
     position: absolute;
-width: 842px;
-height: 81px;
+    width: 842px;
+    height: 81px;
+    margin-left: 11px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    overflow: auto;
+    color: #000000;
+}
+.logo-raw{
+    margin: 6px 10px 6px 11px;
+}
+.tulisan-raw{
+    margin: auto 0;
 
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 10px;
-line-height: 12px;
-overflow: auto;
-color: #000000;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height */
+
+
+    color: #000000;
 }

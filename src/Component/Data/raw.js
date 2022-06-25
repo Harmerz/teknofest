@@ -49,7 +49,7 @@ let team_id = 376737;
         let yaw = rand();
         let spinrate = rand();
         let video_transfer="Yes";
-        let contoh = team_id+","+packet+','+dateTime+','+pressure1+","+pressure2+","+altitude1+","+altitude2+","+altitudediff+","+descent+","+temp+","+voltage+","+gps1_latitude+","+gps1_longitude+","+gps1_altitude+","+gps2_latitude+","+gps2_longitude+","+gps2_altitude+","+status+","+pitch+","+roll+","+yaw+","+spinrate+","+video_transfer;
+        let contoh = team_id+","+packet+','+dateTime+','+pressure1+","+pressure2+","+altitude1+","+altitude2+","+altitudediff+","+descent+","+temp+","+voltage+","+gps1_latitude.toFixed(6)+","+gps1_longitude.toFixed(6)+","+gps1_altitude.toFixed(6)+","+gps2_latitude.toFixed(6)+","+gps2_longitude.toFixed(6)+","+gps2_altitude.toFixed(6)+","+status+","+pitch+","+roll+","+yaw+","+spinrate+","+video_transfer;
         packet++;
         const bagi = contoh.split(",");
          isibagi = {
@@ -76,8 +76,7 @@ let team_id = 376737;
             video_transfer: bagi[22],
         };
         contoh.toString();
-        raw_data.push(contoh+" ");
-        
+        raw_data.push(contoh+" ");  
     }, 1000);
    
     return(isibagi);

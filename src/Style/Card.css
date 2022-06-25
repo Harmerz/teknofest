@@ -67,7 +67,6 @@
     font-weight: 400;
     font-size: 11px;
     line-height: 13px;
-
     color: #000000;
 }
 .text{
@@ -81,6 +80,7 @@
     color: #000000;
     align-items: right;
     margin: auto;
+    margin-bottom: 5px;
 }
 .box-container{
     width: 14.24px;
@@ -93,4 +93,7 @@
     height: 6.24px;
     background: #96A0FF;
     margin-top: 3px;
+}
+.containerbox{
+    margin-bottom: 5px;
 }

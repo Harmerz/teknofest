@@ -12,14 +12,6 @@ const fillRedOptions = { fillColor: '#FF5252' }
 
 var a=-7.759029;
 var b=110.373108;
-// var a = isibagi.gps1_latitude;
-setInterval(()=>{
-    a=isibagi.gps1_latitude;
-    b=isibagi.gps1_longitude;
-    // 
-},
-1000
-)
 
 
 //found our location
@@ -36,10 +28,6 @@ function LocationMarker(props) {
 
 class GPS extends Component {
 
-  
-
-
-    // const test = () = 
 
     constructor (props) {
     super(props);

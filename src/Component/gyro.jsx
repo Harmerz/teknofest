@@ -4,6 +4,7 @@ import * as THREE from 'three';
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import Grafik from "./Data/grafik";
 import '../Style/gyro.css';
+import GyroLogo from '../SVG/Gyro.svg';
 
 const style = {
     width: 347,
@@ -153,13 +154,53 @@ class Gyro extends Component {
           }
       render() {
         return (
-            <div id="gyro" className="flex-row">
-            
-            <div id="grafikgyro">
-                <Grafik Isidata={this.props.Isidata} Updatedata={this.props.Updatedata}/>
+            <div className="flex-column">
+                <div className="flex-row header-gyro">
+                    <div className="flex-row header-gyro-penjelasan">
+                        <img src={GyroLogo} height="35px" alt="logo" />
+                        <span className="nama-gyro">
+                            GYROSCOPE
+                        </span>
+                    </div>
+                    <div className="updatedata flex-column ">
+                        <div className="yaw flex-row">
+                            <div className="box-yaw"></div>
+                            <div className="namebox">
+                                Yaw
+                            </div>
+                        </div>
+                        <div className="pitch flex-row">
+                            <div className="box-pitch"></div>
+                            <div className="namebox">
+                                Pitch
+                            </div>
+                        </div>
+                        <div className="roll flex-row">
+                            <div className="box-roll"></div>
+                            <div className="namebox">
+                                Roll
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex-column">
+                        <div className="text">
+                            {this.props.Updatedata[0]}
+                        </div>
+                        <div className="text">
+                            {this.props.Updatedata[1]}
+                        </div>
+                        <div className="text">
+                            {this.props.Updatedata[2]}
+                        </div>
+                    </div>
+                </div>
+                <div id="gyro" className="flex-row">
+                    <div id="grafikgyro">
+                        <Grafik Isidata={this.props.Isidata} Updatedata={this.props.Updatedata}/>
+                    </div>
+                    <TigaDimensi/>
+                </div>
             </div>
-            <TigaDimensi/>
-        </div>
         );
       }
 }
