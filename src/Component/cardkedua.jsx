@@ -13,12 +13,9 @@
 // export default CardKedua;
 
 
-import { render } from "@testing-library/react";
-import { update } from "lodash";
 import React,{Component} from "react";
 import '../Style/Card.css'
 import Grafik from "./Data/grafik";
-import Altitude from '../SVG/Altitude.svg'
 
 class CardPertama extends Component {
     constructor(props) {
@@ -47,35 +44,18 @@ class CardPertama extends Component {
         <div class="card-kedua">
              <div className="flex-row header">
             <div className="flex-row header-penjelasan">
-                <img src={this.props.Logo} height="20px" alt="logo" />
+                <img src={this.props.Logo} height="25px" alt="logo" />
                 <span className="nama">
                     {this.props.Nama}
                 </span>
             </div>
             <div className="text">
-                {this.props.Updatedata[0]}
+                {this.props.Updatedata[0]} {this.props.satuan}
             </div>
         </div>
             <div className="grafik-kedua">
                 <Grafik Isidata={this.props.Isidata} Updatedata={this.state.full}  />
             </div>
-            
-                {/* <div>
-                    <div className="flex-row header">
-                        <div className="flex-row header-penjelasan">
-                            <img src={Altitude} height="20px" alt="logo"/>
-                            <span className="nama">
-                                {this.state.full[0]}
-                            </span>
-                        </div>
-                        <div className="updatedata">
-                            { {this.state.data_2} }
-                        </div>  
-                    </div>
-                    <div className="grafik">
-                        <Grafik Isidata={this.props.Isidata} Updatedata={this.state.full} />
-                    </div>
-                </div> */}
             </div>
       );
     }

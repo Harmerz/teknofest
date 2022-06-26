@@ -7,13 +7,11 @@ import StatusPayload from './Component/status_payload';
 import Gyro from './Component/gyro';
 import CardKedua from './Component/cardkedua';
 import Raw from './Component/raw';
-import RawData, { isibagi } from './Component/Data/raw';
+import RawData from './Component/Data/raw';
 // import AltitudeLogo from './LOGO SVG/Altitude.svg';
 import {GyroData,Pressure,Temperature,Voltage,Descentrate,Spinrate,AltitudeDifference,Altitude} from './Component/Data/datain';
 import {Updatealtitude,Updatealtitudedifference,Updatedescentrate,Updategyro,Updatepressure,Updatespinrate,Updatetemperature,Updatevoltage} from './Component/Data/datain';
 import Video from './Component/video';
-import Example from './Component/example';
-
 import AltitudeLogo from './SVG/Altitude.svg';
 import DescentLogo from './SVG/Descent.svg';
 import PressureLogo from './SVG/Pressure.svg';
@@ -36,12 +34,12 @@ function App() {
         <div class="flex-column">
           <div class="flex-row">
             <Video/>
-            <CardPertama Logo={PressureLogo} Nama="PRESSURE" Isidata={Pressure} Updatedata={Updatepressure} />
+            <CardPertama Logo={PressureLogo} Nama="PRESSURE" Isidata={Pressure} Updatedata={Updatepressure} satuan=" Pa"/>
             
           </div>
           <div class="flex-row">
-            <CardPertama Logo={AltitudeLogo} Nama="ALTITUDE" Isidata={Altitude} Updatedata={Updatealtitude} />
-            <CardPertama Logo={AltitudeLogo} Nama="ALTITUDE DIFFERENCE" Isidata={AltitudeDifference} Updatedata={Updatealtitudedifference} />
+            <CardPertama Logo={AltitudeLogo} Nama="ALTITUDE" Isidata={Altitude} Updatedata={Updatealtitude} satuan=" m" />
+            <CardPertama Logo={AltitudeLogo} Nama="ALTITUDE DIFFERENCE" Isidata={AltitudeDifference} Updatedata={Updatealtitudedifference} satuan=" m" />
           </div>
         </div>
       </div>
@@ -52,12 +50,12 @@ function App() {
         <Gyro Isidata={GyroData} Updatedata={Updategyro}/>
         <div class="flex-column">
           <div class="flex-row">
-            <CardKedua Logo={TemperatureLogo} Nama="TEMPERATURE" Isidata={Temperature} Updatedata={Updatetemperature}/>
+            <CardKedua Logo={TemperatureLogo} Nama="TEMPERATURE" Isidata={Temperature} Updatedata={Updatetemperature} satuan=" °C"/>
             <CardKedua Logo={SpiningLogo} Nama="SPIN RATE" Isidata={Spinrate} Updatedata={Updatespinrate}/>
           </div>
           <div class="flex-row">
-            <CardKedua Logo={VoltLogo} Nama="VOLTAGE" Isidata={Voltage} Updatedata={Updatevoltage}/>
-            <CardKedua Logo={DescentLogo} Nama="DESCENT RATE" Isidata={Descentrate} Updatedata={Updatedescentrate}/>
+            <CardKedua Logo={VoltLogo} Nama="VOLTAGE" Isidata={Voltage} Updatedata={Updatevoltage} satuan=" V"/>
+            <CardKedua Logo={DescentLogo} Nama="DESCENT RATE" Isidata={Descentrate} Updatedata={Updatedescentrate} satuan=" m/s"/>
           </div>
         </div>
         <Raw/>

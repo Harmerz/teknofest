@@ -1,42 +1,6 @@
-
-import { render } from "@testing-library/react";
-import { update } from "lodash";
 import React,{Component} from "react";
 import '../Style/Card.css'
 import Grafik from "./Data/grafik";
-import Altitude from '../SVG/Altitude.svg'
-const Header = ()=>{
-    return(
-        <div>
-            <div className="updatedata flex-column ">
-                <div className="containerbox flex-row">
-                    <div className="box-container"></div>
-                    <div className="namebox">
-                        Container
-                    </div>
-                </div>
-                <div className="payloadbox flex-row">
-                    <div className="box-payload"></div>
-                    <div className="namebox">
-                        Science Payload
-                    </div>
-                </div>
-            </div>
-            <div className="flex-column">
-                <div className="text">
-                    {this.props.Updatedata[0]}
-                </div>
-                <div className="text">
-                    {this.props.Updatedata[1]}
-                </div>
-            </div>
-        </div>
-        
-    );
-}
-
-
-
 
 class CardPertama extends Component {
 
@@ -95,10 +59,10 @@ class CardPertama extends Component {
                 </div>
                 <div className="flex-column">
                     <div className="text">
-                        {this.props.Updatedata[0]}
+                        {this.props.Updatedata[0]}{this.props.satuan}
                     </div>
                     <div className="text">
-                        {this.props.Updatedata[1]}
+                        {this.props.Updatedata[1]}{this.props.satuan}
                     </div>
                 </div>
             </div>
@@ -106,7 +70,7 @@ class CardPertama extends Component {
             <div className="flex-row header-penjelasan">
                 <img src={this.props.Logo} height="20px" alt="logo" />
                 <span className="nama">
-                    {this.props.Nama}
+                    {this.props.Nama}{this.props.satuan}
                 </span>
             </div>
             <div className="text">
