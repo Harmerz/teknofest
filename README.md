@@ -1,3 +1,6 @@
+![Group 61 (2)](https://user-images.githubusercontent.com/54217524/175926954-4f5c3a57-eab0-44d7-a417-e0b0a5e7cefe.png)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
