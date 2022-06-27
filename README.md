@@ -1,3 +1,6 @@
+![repository-open-graph-template](https://user-images.githubusercontent.com/54217524/175926812-917f8169-6ab1-48be-bba5-faca0729eec0.jpg)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
