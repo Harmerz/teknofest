@@ -1,5 +1,6 @@
 import React from "react";
 import '../Style/statusbar.css'
+import LoginLogo from '../SVG/Login.svg';
 
 const Statusbaru = () =>{
     return(
@@ -61,7 +62,19 @@ const Statusbaru = () =>{
         </div>
       </div>
       <div id="video-transfer">
-  
+        <div className="flex-column" id="video">
+          <div className="foto-satelit">
+            <img src={LoginLogo} alt="Login" height="80px" />
+          </div>
+          <div className="penjelasan-connect">
+            DISCONNECTED
+          </div>
+          <form className="password">
+              <input type="text" id="password" name="password" />
+          </form>
+          <div class="button2">Login</div>
+        </div>
+            
       </div>
     </div>
     )
