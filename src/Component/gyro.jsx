@@ -9,7 +9,6 @@ import GyroLogo from '../SVG/Gyro.svg';
 const style = {
     width: 347,
     height: 365,
-    // background: red,
 };
 
 class TigaDimensi extends Component {

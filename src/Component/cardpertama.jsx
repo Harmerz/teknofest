@@ -70,11 +70,11 @@ class CardPertama extends Component {
             <div className="flex-row header-penjelasan">
                 <img src={this.props.Logo} height="20px" alt="logo" />
                 <span className="nama">
-                    {this.props.Nama}{this.props.satuan}
+                    {this.props.Nama}
                 </span>
             </div>
             <div className="text">
-                {this.props.Updatedata[0]}
+                {this.props.Updatedata[0]}{this.props.satuan}
             </div>
         </div>
             }

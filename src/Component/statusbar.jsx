@@ -1,6 +1,8 @@
 import React from "react";
 import '../Style/statusbar.css'
 import LoginLogo from '../SVG/Login.svg';
+import LogoUGM from '../SVG/LogoUGM.svg';
+import UgrasenaLogo from '../SVG/Ugrasena.svg';
 
 const Statusbaru = () =>{
     return(
@@ -9,8 +11,8 @@ const Statusbaru = () =>{
         <div class="flex-column">
           <p id="tulisan">UGRASENA</p>
           <div class="flex-row" id="foto">
-            {/* <img src="Assets/logo-ugrasena.png" alt="logo ugm"/>
-            <img src="Assets/logo-ugm.png" alt="logo ugm"/> */}
+            <img src={UgrasenaLogo} alt="logo ugm" height="35px"/>
+            <img src={LogoUGM} alt="logo ugm" height="35px"/>
           </div>
         </div>
         

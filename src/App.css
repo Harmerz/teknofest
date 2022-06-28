@@ -15,5 +15,8 @@ body{
   margin: 15px 0 0px 9px;
 }
 #gyro-raw{
-  margin: 15px 0 0px 8px;
+  margin: 15px 0 0px 8px; 
+}
+#card-kanan{
+  /* max-width: 856px; */
 }

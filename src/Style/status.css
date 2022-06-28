@@ -10,7 +10,6 @@
     filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.32));
 }
 #status-payload{
-    width: 850px;
     height: 116px;
     background: #FFFFFF;
     /* border: 2px solid #FFFFFF; */

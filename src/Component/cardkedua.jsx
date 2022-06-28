@@ -17,7 +17,7 @@ import React,{Component} from "react";
 import '../Style/Card.css'
 import Grafik from "./Data/grafik";
 
-class CardPertama extends Component {
+class CardKedua extends Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -64,4 +64,4 @@ class CardPertama extends Component {
 
 
 
-export default CardPertama;
+export default CardKedua;
