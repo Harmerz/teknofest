@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-![repository-open-graph-template](https://user-images.githubusercontent.com/54217524/175926812-917f8169-6ab1-48be-bba5-faca0729eec0.jpg)
-=======
 ![Group 61 (2)](https://user-images.githubusercontent.com/54217524/175926954-4f5c3a57-eab0-44d7-a417-e0b0a5e7cefe.png)
->>>>>>> 613f0fc8fc7b4b586eb6d0da555952ea8c7a0225
+
 
 
 # Getting Started with Create React App
