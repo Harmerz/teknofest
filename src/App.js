@@ -18,14 +18,12 @@ import PressureLogo from './SVG/Pressure.svg';
 import SpiningLogo from './SVG/Spining.svg';
 import TemperatureLogo from './SVG/Temperature.svg';
 import VoltLogo from './SVG/Volt.svg';
-
-
+import Webcam from 'react-webcam';
 
 
 RawData()
 function App() {
   return (
-    // <Example  Isidata={AltitudeDifference} Updatedata={Updatealtitudedifference}/>
     <div class="flex-row">
       <Statusbaru/>
       <div class="flex-column" id="map-video">
@@ -33,7 +31,7 @@ function App() {
         <GPS/>
         <div class="flex-column">
           <div class="flex-row">
-            <Video/>
+            <Video />
             <CardPertama Logo={PressureLogo} Nama="PRESSURE" Isidata={Pressure} Updatedata={Updatepressure} satuan=" Pa"/>
             
           </div>
