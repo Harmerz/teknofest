@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactECharts from 'echarts-for-react';
 import cloneDeep from 'lodash.clonedeep';
 // import {isibagi} from './raw';
-
 const Grafik= (props) => {
-
   const DEFAULT_OPTION = {
     tooltip: {
       trigger: 'axis'
@@ -29,9 +27,9 @@ const Grafik= (props) => {
       {
         type: 'value',
         scale: true,
-        max: 20,
-        min: 0,
-        boundaryGap: [0.5, 0.5]
+        max: props.maximum,
+        min: props.minimum,
+        // boundaryGap: [0.01, 0.01]
       },
     ],
     series: props.Isidata,

@@ -12,6 +12,7 @@ class CardPertama extends Component {
         data_1 : props.Updatedata[0],
         data_2 : props.Updatedata[1],
         full : props.Updatedata,
+        maksimum : 20,
       };
     }
     componentDidMount() {
@@ -25,6 +26,7 @@ class CardPertama extends Component {
             data_1 : this.props.Updatedata[0],
             data_2 : this.props.Updatedata[1],
             full : this.props.Updatedata,
+            maksimum : this.state.maksimum + 1,
         });
         }
     render() {

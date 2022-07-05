@@ -72,7 +72,6 @@ class TigaDimensi extends Component {
                 this.model = el;
                 // var x = 180;
                 // this.scene.rotateX(x*Math.PI/180);//rotate degree to radians just change the x axis
-                console.log(this.scene.rotation.z);
             },
         );
     };

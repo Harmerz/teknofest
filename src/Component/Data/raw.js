@@ -5,7 +5,7 @@ export var raw_data = [];
 let RawData = ()=>{
 
 function rand(){
-    return((Math.random()*10 + 5).toFixed(1) - 0);
+    return((Math.random()*4000 - 500).toFixed(2) - 0);
 }
 
 let gps1_latitude = -7.759029;
@@ -16,11 +16,11 @@ let gps2_longitude = 110.373108;
 // let gps2_altitude = rand();
 
 
-
+let i=-1;
 let packet = 0;
 let team_id = 376737;
     setInterval(function(){ 
-        
+        i++;
         var today = new Date();
         var date = String(today.getMonth() + 1).padStart(2, '0')+'/'+String(today.getDate()).padStart(2, '0')+'/'+today.getFullYear();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
