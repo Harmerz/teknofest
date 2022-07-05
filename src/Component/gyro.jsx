@@ -5,6 +5,7 @@ import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import Grafik from "./Data/grafik";
 import '../Style/gyro.css';
 import GyroLogo from '../SVG/Gyro.svg';
+import { MeshoptDecoder } from "three/examples/jsm/libs/meshopt_decoder.module.js";
 
 const style = {
     width: 347,
@@ -48,13 +49,12 @@ class TigaDimensi extends Component {
         this.scene.background = new THREE.Color( 0xE9ECEB );
         const loader = new GLTFLoader();
         const modelLh = new THREE.Object3D();
-        
-        // var scene = new THREE.Scene(); // initialising the scene
-        // this.scene.background = new THREE.Color( 0xFFFFFF);
+        loader.setMeshoptDecoder(MeshoptDecoder);
+
         // load a resource
         loader.load(
             // resource URL relative to the /public/index.html of the app
-            'Test_payload.gltf',
+            'scene.glb',
             // called when resource is loaded
             ( gltf ) => {
                 // this.scene.add(gltf.scene);
