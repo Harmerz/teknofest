@@ -16,11 +16,12 @@ let gps2_longitude = 110.373108;
 // let gps2_altitude = rand();
 
 
-let i=-1;
+let i=360;
+let j=360;
 let packet = 0;
 let team_id = 376737;
     setInterval(function(){ 
-        i++;
+        i+=10;
         var today = new Date();
         var date = String(today.getMonth() + 1).padStart(2, '0')+'/'+String(today.getDate()).padStart(2, '0')+'/'+today.getFullYear();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -44,9 +45,9 @@ let team_id = 376737;
         gps1_longitude.toFixed(6);
         let gps2_altitude = rand();
         let status = rand();
-        let pitch = rand();
-        let roll = rand();
-        let yaw = rand();
+        let pitch = j;
+        let roll = i;
+        let yaw = j;
         let spinrate = rand();
         let video_transfer="Yes";
         let contoh = team_id+","+packet+','+dateTime+','+pressure1+","+pressure2+","+altitude1+","+altitude2+","+altitudediff+","+descent+","+temp+","+voltage+","+gps1_latitude.toFixed(6)+","+gps1_longitude.toFixed(6)+","+gps1_altitude.toFixed(6)+","+gps2_latitude.toFixed(6)+","+gps2_longitude.toFixed(6)+","+gps2_altitude.toFixed(6)+","+status+","+pitch+","+roll+","+yaw+","+spinrate+","+video_transfer;

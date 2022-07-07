@@ -14,14 +14,22 @@ const style = {
 
 class TigaDimensi extends Component {
     componentDidMount() {
+        
         this.sceneSetup();
         this.addLights();
         this.loadTheModel();
-        this.startAnimationLoop();
+        setInterval(()=>{
+            this.startAnimationLoop();
+        },1000)
+        // this.startAnimationLoop();
+
         // window.addEventListener('resize', this.handleWindowResize);
     }
 
     sceneSetup = () => {
+        this.xAwal = 0;
+        this.yAwal = 0;
+        this.zAwal = 0;
         // get container dimensions and use them for scene sizing
         const width = this.mount.clientWidth;
         const height = this.mount.clientHeight;
@@ -50,7 +58,7 @@ class TigaDimensi extends Component {
         const loader = new GLTFLoader();
         const modelLh = new THREE.Object3D();
         loader.setMeshoptDecoder(MeshoptDecoder);
-
+        console.log("testing");
         // load a resource
         loader.load(
             // resource URL relative to the /public/index.html of the app
@@ -97,16 +105,39 @@ class TigaDimensi extends Component {
 
     startAnimationLoop = () => {
 
-        this.scene.rotateY(0.005);
-        this.scene.rotateX(0.005);
-        this.scene.rotateZ(0.005);
 
-        this.renderer.render( this.scene, this.camera );
+        // let x = 10;
+        // let y = 10;
+        // let z = 10;
+        if(this.props.Updatedata[0] === undefined){
+            this.props.Updatedata[0] = 0;
+        }
+        if(this.props.Updatedata[1] === undefined){
+            this.props.Updatedata[1] = 0;
+        }
+        if(this.props.Updatedata[2] === undefined){
+            this.props.Updatedata[2] = 0;
+        }
+        let x = (this.props.Updatedata[0] - this.xAwal);
+        let y = (this.props.Updatedata[1] - this.yAwal);
+        let z = (this.props.Updatedata[2] - this.zAwal);
+        this.xAwal = this.props.Updatedata[0];
+        this.yAwal = this.props.Updatedata[1];
+        this.zAwal = this.props.Updatedata[2];
+
+
+
+        this.scene.rotateX(x*Math.PI/180);
+        this.scene.rotateY(y*Math.PI/180);
+        this.scene.rotateZ(z*Math.PI/180);
 
         // The window.requestAnimationFrame() method tells the browser that you wish to perform
         // an animation and requests that the browser call a specified function
         // to update an animation before the next repaint
-        this.requestID = window.requestAnimationFrame(this.startAnimationLoop);
+       
+        console.log(z);
+        this.renderer.render( this.scene, this.camera );
+        // this.requestID = window.requestAnimationFrame(this.startAnimationLoop);
     };
 
     handleWindowResize = () => {
@@ -196,7 +227,7 @@ class Gyro extends Component {
                     <div id="grafikgyro">
                         <Grafik Isidata={this.props.Isidata} Updatedata={this.props.Updatedata}/>
                     </div>
-                    <TigaDimensi/>
+                    <TigaDimensi Updatedata={this.props.Updatedata}/>
                 </div>
             </div>
         );
