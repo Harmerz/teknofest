@@ -7,26 +7,26 @@ const StatusPayload = () => {
           <div>
           <div class="flex-row">
             <div class="flex-column">
-              <div class="ellipse-payload"></div>
+              <div class="ellipse-payload" id="standby-p"></div>
             </div>
-            <div class="garis-payload"></div>
+            <div class="garis-payload" id="released-p-garis"></div>
             <div class="flex-column">
-              <div class="ellipse-payload"></div>
+              <div class="ellipse-payload" id="released-p-dot"></div>
               
             </div>
-            <div class="garis-payload"></div>
+            <div class="garis-payload" id="hovering-p-garis"></div>
             <div class="flex-column">
-              <div class="ellipse-payload"></div>
+              <div class="ellipse-payload" id="hovering-p-dot"></div>
               
             </div>
-            <div class="garis-payload"></div>
+            <div class="garis-payload" id="descent-p-garis"></div>
             <div class="flex-column">
-              <div class="ellipse-payload"></div>
+              <div class="ellipse-payload" id="descent-p-dot"></div>
             
             </div>
-            <div class="garis-payload"></div>
+            <div class="garis-payload" id="landed-p-garis"></div>
             <div class="flex-column">
-              <div class="ellipse-payload"></div>
+              <div class="ellipse-payload" id="landed-p-dot"></div>
               
             </div>
 

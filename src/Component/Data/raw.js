@@ -18,10 +18,12 @@ let gps2_longitude = 110.373108;
 
 let i=360;
 let j=360;
+let k=1;
 let packet = 0;
 let team_id = 376737;
     setInterval(function(){ 
         i+=10;
+        k+=1;
         var today = new Date();
         var date = String(today.getMonth() + 1).padStart(2, '0')+'/'+String(today.getDate()).padStart(2, '0')+'/'+today.getFullYear();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -44,7 +46,7 @@ let team_id = 376737;
         gps2_longitude += 0.0001;
         gps1_longitude.toFixed(6);
         let gps2_altitude = rand();
-        let status = rand();
+        let status = k;
         let pitch = j;
         let roll = i;
         let yaw = j;
@@ -83,6 +85,54 @@ let team_id = 376737;
     return(isibagi);
 }
 
-// setInterval(function(){console.log(isibagi);},1000);
+setInterval(function(){
+    
+    if(isibagi.statusnow>1){
+        document.getElementById("standby-c").className="ellipse-container-active";
+        document.getElementById("standby-p").className="ellipse-payload-active";
+    }
+    if(isibagi.statusnow>10){
+        document.getElementById("ascent-c-garis").className="garis-container-active";
+        document.getElementById("ascent-c-dot").className="ellipse-container-active";
+    }
+    if(isibagi.statusnow>20){
+        document.getElementById("released-c-garis").className="garis-container-active";
+        document.getElementById("released-c-dot").className="ellipse-container-active";
+    }
+    if(isibagi.statusnow>30){
+        document.getElementById("separated-c-garis").className="garis-container-active";
+        document.getElementById("separated-c-dot").className="ellipse-container-active";
+    }
+    if(isibagi.statusnow>40){
+        document.getElementById("descent-c-garis").className="garis-container-active";
+        document.getElementById("descent-c-dot").className="ellipse-container-active";
+    }
+    if(isibagi.statusnow>50){
+        document.getElementById("landed-c-garis").className="garis-container-active";
+        document.getElementById("landed-c-dot").className="ellipse-container-active";
+    }
+    //payload
+    if(isibagi.statusnow>30){
+        document.getElementById("released-p-garis").className="garis-payload-active";
+        document.getElementById("released-p-dot").className="ellipse-payload-active";
+    }
+    if(isibagi.statusnow>40){
+        document.getElementById("hovering-p-garis").className="garis-payload-active";
+        document.getElementById("hovering-p-dot").className="ellipse-payload-active";
+    }
+    if(isibagi.statusnow>50){
+        document.getElementById("descent-p-garis").className="garis-payload-active";
+        document.getElementById("descent-p-dot").className="ellipse-payload-active";
+    }
+    if(isibagi.statusnow>60){
+        document.getElementById("landed-p-garis").className="garis-payload-active";
+        document.getElementById("landed-p-dot").className="ellipse-payload-active";
+    }
+    
+
+
+},1000);
 
 export default RawData;
+
+
