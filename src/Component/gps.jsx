@@ -37,6 +37,8 @@ class GPS extends Component {
         payload_lat: 0,
         payload_long: 0,
         thisbound : [0,0,0,0],
+        container_alt: 0,
+        payload_alt: 0,
     }
     }
 
@@ -50,14 +52,16 @@ class GPS extends Component {
 
     tick() {
     this.setState({
-        container_lat: isibagi.gps2_latitude.toFixed(6),
-        container_long:  isibagi.gps2_longitude.toFixed(6),
-        payload_lat: isibagi.gps1_latitude.toFixed(6),
-        payload_long: isibagi.gps1_longitude.toFixed(6),
+        container_lat: isibagi.gps2_latitude,
+        container_long:  isibagi.gps2_longitude,
+        payload_lat: isibagi.gps1_latitude,
+        payload_long: isibagi.gps1_longitude,
         thisbound : [
                         [isibagi.gps2_latitude, isibagi.gps2_longitude],
                         [isibagi.gps1_latitude, isibagi.gps1_longitude]
-                    ]
+                    ],
+        container_alt: isibagi.gps2_altitude,
+        payload_alt: isibagi.gps1_altitude,
     });
     }
     
@@ -104,7 +108,7 @@ class GPS extends Component {
                                 Alt
                             </div>
                             <div>
-                                NAN
+                                {this.state.container_alt}
                             </div>
                         </div>
                     </div>
@@ -138,7 +142,7 @@ class GPS extends Component {
                                 Alt
                             </div>
                             <div>
-                                NAN
+                                {this.state.payload_alt}
                             </div>
                         </div>
                     </div>

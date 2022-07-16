@@ -58,7 +58,6 @@ class TigaDimensi extends Component {
         const loader = new GLTFLoader();
         const modelLh = new THREE.Object3D();
         loader.setMeshoptDecoder(MeshoptDecoder);
-        console.log("testing");
         // load a resource
         loader.load(
             // resource URL relative to the /public/index.html of the app
@@ -104,40 +103,42 @@ class TigaDimensi extends Component {
     };
 
     startAnimationLoop = () => {
+        
+        if(this.props.Updatedata[0] === undefined || this.props.Updatedata[1] === undefined || this.props.Updatedata[2] === undefined || Number.isNaN(this.props.Updatedata[0]) || Number.isNaN(this.props.Updatedata[1]) ||Number.isNaN(this.props.Updatedata[2])){
+            console.log("error");
+        }else{
+            // let x = 10;
+            // let y = 10;
+            // let z = 10;
+            if(this.props.Updatedata[0] === undefined){
+                this.props.Updatedata[0] = 0;
+            }
+            if(this.props.Updatedata[1] === undefined){
+                this.props.Updatedata[1] = 0;
+            }
+            if(this.props.Updatedata[2] === undefined){
+                this.props.Updatedata[2] = 0;
+            }
+            let x = (this.props.Updatedata[0] - this.xAwal);
+            let y = (this.props.Updatedata[1] - this.yAwal);
+            let z = (this.props.Updatedata[2] - this.zAwal);
+            this.xAwal = this.props.Updatedata[0];
+            this.yAwal = this.props.Updatedata[1];
+            this.zAwal = this.props.Updatedata[2];
 
 
-        // let x = 10;
-        // let y = 10;
-        // let z = 10;
-        if(this.props.Updatedata[0] === undefined){
-            this.props.Updatedata[0] = 0;
+
+            this.scene.rotateX(x*Math.PI/180);
+            this.scene.rotateY(y*Math.PI/180);
+            this.scene.rotateZ(z*Math.PI/180);
+
+            // The window.requestAnimationFrame() method tells the browser that you wish to perform
+            // an animation and requests that the browser call a specified function
+            // to update an animation before the next repaint
+        
+            this.renderer.render( this.scene, this.camera );
+            // this.requestID = window.requestAnimationFrame(this.startAnimationLoop);
         }
-        if(this.props.Updatedata[1] === undefined){
-            this.props.Updatedata[1] = 0;
-        }
-        if(this.props.Updatedata[2] === undefined){
-            this.props.Updatedata[2] = 0;
-        }
-        let x = (this.props.Updatedata[0] - this.xAwal);
-        let y = (this.props.Updatedata[1] - this.yAwal);
-        let z = (this.props.Updatedata[2] - this.zAwal);
-        this.xAwal = this.props.Updatedata[0];
-        this.yAwal = this.props.Updatedata[1];
-        this.zAwal = this.props.Updatedata[2];
-
-
-
-        this.scene.rotateX(x*Math.PI/180);
-        this.scene.rotateY(y*Math.PI/180);
-        this.scene.rotateZ(z*Math.PI/180);
-
-        // The window.requestAnimationFrame() method tells the browser that you wish to perform
-        // an animation and requests that the browser call a specified function
-        // to update an animation before the next repaint
-       
-        console.log(z);
-        this.renderer.render( this.scene, this.camera );
-        // this.requestID = window.requestAnimationFrame(this.startAnimationLoop);
     };
 
     handleWindowResize = () => {
