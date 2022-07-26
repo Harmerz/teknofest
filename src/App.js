@@ -4,7 +4,7 @@ import CardPertama from './Component/cardpertama';
 import GPS from './Component/gps';
 import StatusContainer from './Component/status_container';
 import StatusPayload from './Component/status_payload';
-import Gyro from './Component/gyro';
+import Gyro, {TigaDimensi} from './Component/gyro';
 import CardKedua from './Component/cardkedua';
 import Raw from './Component/raw';
 import RawData from './Component/Data/raw';
@@ -47,7 +47,10 @@ function App() {
 
       <div class="flex-column" id="gyro-raw">
         <StatusPayload/>
-        <Gyro Isidata={GyroData} Updatedata={Updategyro}/>
+        <div id='gyro' className='flex-row'>
+          <Gyro Isidata={GyroData} Updatedata={Updategyro}/>
+          <TigaDimensi Updatedata={Updategyro}/>
+        </div>
         <div class="flex-column" id="card-kanan">
           <div class="flex-row">
             <CardKedua Logo={TemperatureLogo} Nama="TEMPERATURE" Isidata={Temperature} Updatedata={Updatetemperature} satuan=" °C"/>

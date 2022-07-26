@@ -1,5 +1,5 @@
-import { serverApi } from 'utils/helper/api';
-import message from 'utils/helper/message';
+import { serverApi } from '../helper/api';
+import message from '../helper/message';
 
 const setTime = async val => {
 	try {
