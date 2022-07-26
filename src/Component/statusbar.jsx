@@ -26,8 +26,9 @@ export function Upload(){
   return(
           <div id="video-transfer">
             <div className="flex-column" id="video">
-              <iframe src="C:\Users\haika\Documents\React JS\GMAT-Turki-2022\src\Component\newArduino\index.html" id="" title="upload"></iframe>
-              {/* <button onclick={window.open("192.168.0.5")}>UPLOAD</button> */}
+              <iframe src="https://192.168.0.5" id="" title="upload"></iframe>
+              {/* <button onclick={window.open("192.16
+              .8.0.5")}>UPLOAD</button> */}
             </div>    
           </div>
   )

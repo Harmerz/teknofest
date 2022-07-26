@@ -7,22 +7,42 @@ import '../Style/gyro.css';
 import GyroLogo from '../SVG/Gyro.svg';
 import { MeshoptDecoder } from "three/examples/jsm/libs/meshopt_decoder.module.js";
 
+
+var basetime = Date.now();
+
+// FPS
+var fps = 30;
 const style = {
     width: 347,
     height: 365,
 };
+var i = 0;
+var catat = [];
 
-class TigaDimensi extends Component {
+var fpsInterval = 1000/10;
+var frameCount = 0;
+// var $results = $("#results");
+var fps, fpsInterval, startTime, now, then, elapsed;
+
+
+
+export class TigaDimensi extends Component {
+    constructor (props) {
+        super(props);
+        this.state = {
+          cetak:"0",
+        }
+        }
+    
     componentDidMount() {
         
         this.sceneSetup();
         this.addLights();
         this.loadTheModel();
-        setInterval(()=>{
-            this.startAnimationLoop();
-        },1000)
-        // this.startAnimationLoop();
-
+        // setInterval(()=>{
+        //     this.startAnimationLoop();
+        // },1000)
+        this.draw();
         // window.addEventListener('resize', this.handleWindowResize);
     }
 
@@ -102,14 +122,26 @@ class TigaDimensi extends Component {
         this.scene.add( lights[ 2 ] );
     };
 
+    draw = () => {
+        fpsInterval = 1000 / fps;
+        then = Date.now();
+        startTime = then;
+        console.log(startTime);
+        this.startAnimationLoop();
+        this.renderer.render( this.scene, this.camera );
+    }
+    
     startAnimationLoop = () => {
-        
-        if(this.props.Updatedata[0] === undefined || this.props.Updatedata[1] === undefined || this.props.Updatedata[2] === undefined || Number.isNaN(this.props.Updatedata[0]) || Number.isNaN(this.props.Updatedata[1]) ||Number.isNaN(this.props.Updatedata[2])){
-            console.log("error");
-        }else{
-            // let x = 10;
-            // let y = 10;
-            // let z = 10;
+        var today = new Date();
+        requestAnimationFrame(this.startAnimationLoop);
+        now = Date.now();
+        elapsed = now - then;
+        if (elapsed > fpsInterval) {
+            var sinceStart = now - startTime;
+            var currentFps = Math.round(1000 / (sinceStart / ++frameCount) * 100) / 100; 
+            this.setState({
+                cetak : String(currentFps) + " fps.",
+            });
             if(this.props.Updatedata[0] === undefined){
                 this.props.Updatedata[0] = 0;
             }
@@ -125,20 +157,60 @@ class TigaDimensi extends Component {
             this.xAwal = this.props.Updatedata[0];
             this.yAwal = this.props.Updatedata[1];
             this.zAwal = this.props.Updatedata[2];
-
-
-
             this.scene.rotateX(x*Math.PI/180);
             this.scene.rotateY(y*Math.PI/180);
             this.scene.rotateZ(z*Math.PI/180);
 
-            // The window.requestAnimationFrame() method tells the browser that you wish to perform
-            // an animation and requests that the browser call a specified function
-            // to update an animation before the next repaint
-        
+            then = now - (elapsed % fpsInterval);
             this.renderer.render( this.scene, this.camera );
-            // this.requestID = window.requestAnimationFrame(this.startAnimationLoop);
+            // this.scene.rotateX(-x*Math.PI/180);
+            // this.scene.rotateY(-y*Math.PI/180);
+            // this.scene.rotateZ(-z*Math.PI/180);
+            
         }
+        // slowly rotate an object
+        
+
+        // The window.requestAnimationFrame() method tells the browser that you wish to perform
+        // an animation and requests that the browser call a specified function
+        // to update an animation before the next repaint
+        
+        // if(this.props.Updatedata[0] === undefined || this.props.Updatedata[1] === undefined || this.props.Updatedata[2] === undefined || Number.isNaN(this.props.Updatedata[0]) || Number.isNaN(this.props.Updatedata[1]) ||Number.isNaN(this.props.Updatedata[2])){
+            
+        // }else{
+            // let x = 10;
+            // let y = 10;
+            // let z = 10;
+            
+            // if(this.props.Updatedata[0] === undefined){
+            //     this.props.Updatedata[0] = 0;
+            // }
+            // if(this.props.Updatedata[1] === undefined){
+            //     this.props.Updatedata[1] = 0;
+            // }
+            // if(this.props.Updatedata[2] === undefined){
+            //     this.props.Updatedata[2] = 0;
+            // }
+            // let x = (this.props.Updatedata[0] - this.xAwal);
+            // let y = (this.props.Updatedata[1] - this.yAwal);
+            // let z = (this.props.Updatedata[2] - this.zAwal);
+            // this.xAwal = this.props.Updatedata[0];
+            // this.yAwal = this.props.Updatedata[1];
+            // this.zAwal = this.props.Updatedata[2];
+
+
+
+            // this.scene.rotateX(x*Math.PI/180);
+            // this.scene.rotateY(y*Math.PI/180);
+            // this.scene.rotateZ(z*Math.PI/180);
+
+            // // The window.requestAnimationFrame() method tells the browser that you wish to perform
+            // // an animation and requests that the browser call a specified function
+            // // to update an animation before the next repaint
+        
+            // this.renderer.render( this.scene, this.camera );
+            // this.requestID = window.requestAnimationFrame(this.startAnimationLoop);
+        // }
     };
 
     handleWindowResize = () => {
@@ -154,7 +226,14 @@ class TigaDimensi extends Component {
     };
 
     render() {
-        return <div style={style} ref={ref => (this.mount = ref)} />;
+        return (
+            <div id="gyro3D">
+                <p id="results">FPS:{this.state.cetak}</p>
+                <div id="3Dnya" style={style} ref={ref => (this.mount = ref)} />
+                
+            </div>
+            
+        );
     }
 }
 
@@ -224,11 +303,11 @@ class Gyro extends Component {
                         </div>
                     </div>
                 </div>
-                <div id="gyro" className="flex-row">
+                <div className="flex-row">
                     <div id="grafikgyro">
                         <Grafik Isidata={this.props.Isidata} Updatedata={this.props.Updatedata}/>
                     </div>
-                    <TigaDimensi Updatedata={this.props.Updatedata}/>
+                    
                 </div>
             </div>
         );

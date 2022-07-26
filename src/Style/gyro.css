@@ -54,3 +54,10 @@
 .pitch{
     margin-bottom: 5px;
 }
+#gyro3D{
+    position: relative;
+}
+#results{
+    position: absolute;
+    text-align:center;
+}
