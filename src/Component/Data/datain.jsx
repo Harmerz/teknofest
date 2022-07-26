@@ -44,39 +44,30 @@ export const GyroData = [
 
 export const Pressure = [
     {
-        name:"C",
-        type:'line',
-        itemStyle: {
-            opacity: 0,
-            color: '#FF5252',
-        },
-        smooth: true,
-        data: dataawal(),
-    },
-    {
         name:"SP",
         type:'line',
         itemStyle: {
             opacity: 0,
             color: '#96A0FF',
+        },
+        smooth: true,
+        data: dataawal(),
+    },
+    {
+        name:"C",
+        type:'line',
+        itemStyle: {
+            opacity: 0,
+            color: '#FF5252',
         },
         smooth: true,
         data: dataawal(),
     },
     
+    
 ]
 
 export const Altitude = [
-    {
-        name:"C",
-        type:'line',
-        itemStyle: {
-            opacity: 0,
-            color: '#FF5252',
-        },
-        smooth: true,
-        data: dataawal(),
-    },
     {
         name:"SP",
         type:'line',
@@ -87,6 +78,17 @@ export const Altitude = [
         smooth: true,
         data: dataawal(),
     },
+    {
+        name:"C",
+        type:'line',
+        itemStyle: {
+            opacity: 0,
+            color: '#FF5252',
+        },
+        smooth: true,
+        data: dataawal(),
+    },
+    
     
 ]
 export const AltitudeDifference = [

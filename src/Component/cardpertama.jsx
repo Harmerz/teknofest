@@ -46,18 +46,19 @@ class CardPertama extends Component {
                     </span>
                 </div>
                 <div className="updatedata flex-column ">
-                    <div className="containerbox flex-row">
-                        <div className="box-container"></div>
-                        <div className="namebox">
-                            Container
-                        </div>
-                    </div>
                     <div className="payloadbox flex-row">
                         <div className="box-payload"></div>
                         <div className="namebox">
                             Science Payload
                         </div>
                     </div>
+                    <div className="containerbox flex-row">
+                        <div className="box-container"></div>
+                        <div className="namebox">
+                            Container
+                        </div>
+                    </div>
+                    
                 </div>
                 <div className="flex-column">
                     <div className="text">
@@ -66,6 +67,7 @@ class CardPertama extends Component {
                     <div className="text">
                         {this.props.Updatedata[1]}{this.props.satuan}
                     </div>
+                    
                 </div>
             </div>
             : <div className="flex-row header">

@@ -11,135 +11,158 @@ export var isibagi;
 export var raw_data = [];
 
 // receive a message from the server
-socket.on('PACKET', (args) => {
-
-  isibagi = {
-    // dateTime = date+','+time;
-        pressure1 : args.payload.pressure1,
-        pressure2 : args.payload.pressure2,
-        altitude1 : args.payload.altitude1,
-        altitude2 : args.payload.altitude2,
-        altitudediff : args.payload.altitudeDifference,
-        descent : args.payload.descentRate,
-        temp : args.payload.temp,
-        voltage : args.payload.voltageLevel,
-        gps1_latitude : args.payload.gps1Latitude,
-        gps1_longitude : args.payload.gps1Longtitude,
-        gps1_altitude : args.payload.gps1Altitude,
-        gps2_latitude : args.payload.gps2Latitude,
-        gps2_longitude : args.payload.gps2Longtitude,
-        gps2_altitude : args.payload.gps2Altitude,
-        statusnow : args.payload.satStatus,
-        pitch : args.payload.pitch,
-        roll : args.payload.roll,
-        yaw : args.payload.yaw,
-        spinrate : args.payload.spinRate,
-    };
-    raw_data.push(args.payload.rawData, " ")
-    console.log(isibagi);
-});
-let RawData = ()=>{
-    return 0;
-}
-
+// socket.on('PACKET', (args) => {
+//     console.log(args);
+//   isibagi = {
+//     // dateTime = date+','+time;
+            // team_id : args.payload.teamId,
+            // packet : args.payload.packetNumbers
+//         pressure1 : args.payload.pressure1,
+//         pressure2 : args.payload.pressure2,
+//         altitude1 : args.payload.altitude1,
+//         altitude2 : args.payload.altitude2,
+//         altitudediff : args.payload.altitudeDifference,
+//         descent : args.payload.descentRate,
+//         temp : args.payload.temp,
+//         voltage : args.payload.voltageLevel,
+//         gps1_latitude : args.payload.gps1Latitude,
+//         gps1_longitude : args.payload.gps1Longtitude,
+//         gps1_altitude : args.payload.gps1Altitude,
+//         gps2_latitude : args.payload.gps2Latitude,
+//         gps2_longitude : args.payload.gps2Longtitude,
+//         gps2_altitude : args.payload.gps2Altitude,
+//         statusnow : args.payload.satStatus,
+//         pitch : args.payload.pitch,
+//         roll : args.payload.roll,
+//         yaw : args.payload.yaw,
+//         spinrate : args.payload.spinRate,
+//     };
+//     raw_data.push(args.payload.rawData, " ")
+//     console.log(isibagi);
+// });
 // let RawData = ()=>{
-
-//     setInterval(function(){ 
-//         i+=10;
-//         k+=1;
-//         var today = new Date();
-//         var date = String(today.getMonth() + 1).padStart(2, '0')+'/'+String(today.getDate()).padStart(2, '0')+'/'+today.getFullYear();
-//         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-//         var dateTime = date+';'+time;
-//         let pressure1 = rand();
-//         let pressure2 = rand();
-//         let altitude1 = rand();
-//         let altitude2 = rand();
-//         let altitudediff = Math.abs(altitude1 - altitude2).toFixed(2);
-//         let descent = rand();
-//         let temp = rand();
-//         let voltage = rand();
-//         gps1_latitude -=0.0001;
-//         gps1_latitude.toFixed(6);
-//         gps1_longitude -= 0.0001;
-//         gps1_longitude.toFixed(6);
-//         let gps1_altitude = rand();
-//         gps2_latitude += 0.0001;
-//         gps2_latitude.toFixed(6);
-//         gps2_longitude += 0.0001;
-//         gps1_longitude.toFixed(6);
-//         let gps2_altitude = rand();
-//         let status = k;
-//         let roll = i;
-//         let yaw = j;
-//         let spinrate = rand();
-//         let video_transfer="Yes";
-//         let contoh = team_id+","+packet+','+dateTime+','+pressure1+","+pressure2+","+altitude1+","+altitude2+","+altitudediff+","+descent+","+temp+","+voltage+","+gps1_latitude.toFixed(6)+","+gps1_longitude.toFixed(6)+","+gps1_altitude.toFixed(6)+","+gps2_latitude.toFixed(6)+","+gps2_longitude.toFixed(6)+","+gps2_altitude.toFixed(6)+","+status+","+pitch+","+roll+","+yaw+","+spinrate+","+video_transfer;
-//         packet++;
-//         const bagi = contoh.split(",");
-//          isibagi = {
-//             // dateTime = date+','+time;
-//             pressure1 : Number(bagi[3]),
-//             pressure2 : Number(bagi[4]),
-//             altitude1 : Number(bagi[5]),
-//             altitude2 : Number(bagi[6]),
-//             altitudediff : Number(bagi[7]),
-//             descent : Number(bagi[8]),
-//             temp : Number(bagi[9]),
-//             voltage : Number(bagi[10]),
-//             gps1_latitude : Number(bagi[11]),
-//             gps1_longitude : Number(bagi[12]),
-//             gps1_altitude : Number(bagi[13]),
-//             gps2_latitude : Number(bagi[14]),
-//             gps2_longitude : Number(bagi[15]),
-//             gps2_altitude : Number(bagi[16]),
-//             statusnow : Number(bagi[17]),
-//             pitch : Number(bagi[18]),
-//             roll : Number(bagi[19]),
-//             yaw : Number(bagi[20]),
-//             spinrate : Number(bagi[21]),
-//             video_transfer: bagi[22],
-//         };
-//         contoh.toString();
-//         raw_data.push(contoh+" ");  
-//     }, 1000);
-   
-//     return(isibagi);
+//     return 0;
 // }
 
+function rand(){
+    return((Math.random()*4000 - 500).toFixed(2) - 0);
+}
+
+var gps1_latitude = 7.102;
+var gps2_latitude = 106.120;
+var gps1_longitude = 7.102;
+var gps2_longitude = 106.120;
+
+var testing = 1;
+let RawData = ()=>{
+
+    let i=360,j=10  ;
+    let team_id = '367772';
+    let packet = 0;
+    
+    setInterval(function(){ 
+        i+=10;
+        var today = new Date();
+        var date = String(today.getMonth() + 1).padStart(2, '0')+'/'+String(today.getDate()).padStart(2, '0')+'/'+today.getFullYear();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = date+';'+time;
+        let pressure1 = rand();
+        let pressure2 = rand();
+        let altitude1 = rand();
+        let altitude2 = rand();
+        let altitudediff = Math.abs(altitude1 - altitude2).toFixed(2);
+        let descent = rand();
+        let temp = rand();
+        let voltage = rand();
+        gps1_latitude -=0.0001;
+        gps1_latitude.toFixed(6);
+        gps1_longitude -= 0.0001;
+        gps1_longitude.toFixed(6);
+        let gps1_altitude = rand();
+        gps2_latitude += 0.0001;
+        gps2_latitude.toFixed(6);
+        gps2_longitude += 0.0001;
+        gps1_longitude.toFixed(6);
+        let gps2_altitude = rand();
+        let status = testing;
+        let pitch = i;
+        let roll = i;
+        let yaw = j;
+        let spinrate = rand();
+        let video_transfer="Yes";
+        let contoh = team_id+","+packet+','+dateTime+','+pressure1+","+pressure2+","+altitude1+","+altitude2+","+altitudediff+","+descent+","+temp+","+voltage+","+gps1_latitude.toFixed(6)+","+gps1_longitude.toFixed(6)+","+gps1_altitude.toFixed(6)+","+gps2_latitude.toFixed(6)+","+gps2_longitude.toFixed(6)+","+gps2_altitude.toFixed(6)+","+status+","+pitch+","+roll+","+yaw+","+spinrate+","+video_transfer;
+        packet++;
+        const bagi = contoh.split(",");
+         isibagi = {
+            // dateTime = date+','+time;
+            team_id : bagi[0],
+            packet : Number(bagi[1]),
+            pressure1 : Number(bagi[3]),
+            pressure2 : Number(bagi[4]),
+            altitude1 : Number(bagi[5]),
+            altitude2 : Number(bagi[6]),
+            altitudediff : Number(bagi[7]),
+            descent : Number(bagi[8]),
+            temp : Number(bagi[9]),
+            voltage : Number(bagi[10]),
+            gps1_latitude : Number(bagi[11]),
+            gps1_longitude : Number(bagi[12]),
+            gps1_altitude : Number(bagi[13]),
+            gps2_latitude : Number(bagi[14]),
+            gps2_longitude : Number(bagi[15]),
+            gps2_altitude : Number(bagi[16]),
+            statusnow : Number(bagi[17]),
+            pitch : Number(bagi[18]),
+            roll : Number(bagi[19]),
+            yaw : Number(bagi[20]),
+            spinrate : Number(bagi[21]),
+            video_transfer: bagi[22],
+        };
+        contoh.toString();
+        raw_data.push(contoh+" ");  
+    }, 1000);
+   
+    return(isibagi);
+}
+setInterval(() => {
+    testing++;
+},5000)
+
 setInterval(function(){
-    let satellite;
-    switch(isibagi.statusnow){
-        case "BOOT" :
-            satellite = 1;
-            break;
-        case "PENDING" :
-            satellite = 2;
-            break;
-        case "ELEVATION" :
-            satellite = 3;
-            break;
-        case "MODEL_SATELLITE_DESCEND":
-            satellite = 4;
-            break;
-        case "LEAVING":
-            satellite = 5;
-            break;
-        case "SCIENCE_PAYLOAD_DESCEND":
-            satellite = 6;
-            break;
-        case "HOVERING":
-            satellite = 7;
-            break;
-        case "SP_DESCEND_2":
-            satellite = 8;
-            break;
-        case "RESCUE":
-            satellite = 9;
-            break;
-        default:
-            satellite = 0;
-    }
+    console.log(isibagi);
+    // isibagi.voltage = 1;
+    let satellite = isibagi.statusnow;
+    // switch(isibagi.statusnow){
+    //     case "BOOT" :
+    //         satellite = 1;
+    //         break;
+    //     case "PENDING" :
+    //         satellite = 2;
+    //         break;
+    //     case "ELEVATION" :
+    //         satellite = 3;
+    //         break;
+    //     case "MODEL_SATELLITE_DESCEND":
+    //         satellite = 4;
+    //         break;
+    //     case "LEAVING":
+    //         satellite = 5;
+    //         break;
+    //     case "SCIENCE_PAYLOAD_DESCEND":
+    //         satellite = 6;
+    //         break;
+    //     case "HOVERING":
+    //         satellite = 7;
+    //         break;
+    //     case "SP_DESCEND_2":
+    //         satellite = 8;
+    //         break;
+    //     case "RESCUE":
+    //         satellite = 9;
+    //         break;
+    //     default:
+    //         satellite = 0;
+    // }
     if(satellite>0){
         document.getElementById("standby-c").className="ellipse-container-active";
         document.getElementById("standby-p").className="ellipse-payload-active";
@@ -187,4 +210,3 @@ setInterval(function(){
 },1000);
 
 export default RawData;
-

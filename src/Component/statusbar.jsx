@@ -1,84 +1,126 @@
-import React from "react";
+import React, {Component} from "react";
 import '../Style/statusbar.css'
 import LoginLogo from '../SVG/Login.svg';
 import LogoUGM from '../SVG/LogoUGM.svg';
 import UgrasenaLogo from '../SVG/Ugrasena.svg';
+import {isibagi} from './Data/raw'
 
-const Statusbaru = () =>{
-    return(
-    <div class="flex-column" id="dashboard">
-      <div id="team-id">
-        <div class="flex-column">
-          <p id="tulisan">UGRASENA</p>
-          <div class="flex-row" id="foto">
-            <img src={UgrasenaLogo} alt="logo ugm" height="35px"/>
-            <img src={LogoUGM} alt="logo ugm" height="35px"/>
-          </div>
-        </div>
+class Statusbar extends Component{
+  
+  constructor (props) {
+      super(props);
+      this.state = {
+        date : "00:00:00",
+        time : "00:00:00",
+        Id : "367772",
+        packet : 0,
+        mission : "00:00:00",
+        millisecond : 0,
+      }
+      }
+  
+  
+      componentDidMount() {
         
-      </div>
-      <div class="utama">
-        <div id="port">
+      setInterval(
+          () => this.tick(),
+
+          1000
+      );
+      }
+    
+      tick() {
+        var today = new Date();
+        var date = String(today.getMonth() + 1).padStart(2, '0')+'/'+String(today.getDate()).padStart(2, '0')+'/'+today.getFullYear();
+        var time = String(today.getHours()).padStart(2, '0') + ":" + String(today.getMinutes()).padStart(2, '0') + ":" + String(today.getSeconds()).padStart(2, '0');
+        var d = isibagi.packet;
+        var h = Math.floor(d / 3600);
+        var m = Math.floor(d % 3600 / 60);
+        var s = Math.floor(d % 3600 % 60);
+      this.setState({
+          date : date,
+          time : time,
+          Id : isibagi.team_id,
+          packet : isibagi.packet,
+          mission : String(h).padStart(2, '0')+":"+String(m).padStart(2, '0')+":"+String(s).padStart(2, '0'),
+      });
+      }
+
+
+
+  render(){
+      return(
+        <div class="flex-column" id="dashboard">
+        <div id="team-id">
+          <div class="flex-column">
+            <p id="tulisan">UGRASENA</p>
+            <div class="flex-row" id="foto">
+              <img src={UgrasenaLogo} alt="logo ugm" height="35px"/>
+              <img src={LogoUGM} alt="logo ugm" height="35px"/>
+            </div>
+          </div>
+          
+        </div>
+        <div class="utama">
+          <div id="port">
+            <div>
+              <p class="port-text">Port : </p>
+              <p class="port-text" id="connected">Connected </p>
+            </div>
+          </div>
+        </div>
+        <div id="status">
           <div>
-            <p class="port-text">Port : </p>
-            <p class="port-text" id="connected">Connected </p>
+            <p class="pengertian">TEAM ID</p>
+            <p class="penjelasan">{this.state.Id}</p>
+            <p class="pengertian">Date Misions</p>
+            <p class="penjelasan">{this.state.date}</p>
+            <p class="pengertian">Clock</p>
+            <p class="penjelasan">{this.state.time}</p>
+            <p class="pengertian">Packet Count</p>
+            <p class="penjelasan">{this.state.packet}</p>
+            <p class="pengertian">Mission Time</p>
+            <p class="penjelasan">{`${this.state.mission}`}</p>
+  
           </div>
         </div>
-      </div>
-      <div id="status">
-        <div>
-          <p class="pengertian">Mission Time</p>
-          <p class="penjelasan">00:00:00</p>
-          <p class="pengertian">Packet Count</p>
-          <p class="penjelasan">100</p>
-          <p class="pengertian">Mode</p>
-          <p class="penjelasan">F</p>
-          <p class="pengertian">SP Release</p>
-          <p class="penjelasan">Y</p>
-          <p class="pengertian">GPS Time</p>
-          <p class="penjelasan">00:00:00</p>
-          <p class="pengertian">GPS Sats</p>
-          <p class="penjelasan">16</p>
-          <p class="pengertian">Command Echo</p>
-          <p class="penjelasan">CXON</p>
-        </div>
-      </div>
-      <div id="tools">
-        <div class="flex-column" id="tools-flex">
-          <p>Container Telemetry</p>
-          <label class="switch">
-            <input type="checkbox"/>
-            <span class="slider round"></span>
-          </label>
-         
-          <p>Set UTC Time</p>
-          <div class="button2">Set</div>
-          <p>Manual Release</p>
-          <div class="button2">Release</div>
-          <p>Reset Memory</p>
-          <div class="button2">Reset</div>
-          <p>CSV</p>
-          <div class="button2">Download</div>
-          
-          
-        </div>
-      </div>
-      <div id="video-transfer">
-        <div className="flex-column" id="video">
-          <div className="foto-satelit">
-            <img src={LoginLogo} alt="Login" height="80px" />
-          </div>
-          <div className="penjelasan-connect">
-            DISCONNECTED
-          </div>
-          <form className="password">
-              <input type="text" id="password" name="password" />
-          </form>
-          <div class="button2">Login</div>
-        </div>
+        <div id="tools">  
+          <div class="flex-column" id="tools-flex">
+            <p>Container Telemetry</p>
+            <label class="switch">
+              <input type="checkbox"/>
+              <span class="slider round"></span>
+            </label>
+           
+            <p>Set UTC Time</p>
+            <button type="submit" class="button2" onClick={console.log("test")}>Set</button>
+            <p>Manual Release</p>
+            <div class="button2">Release</div>
+            <p>Reset Memory</p>
+            <div class="button2">Reset</div>
+            <p>CSV</p>
+            <div class="button2">Download</div>
             
+            
+          </div>
+        </div>
+        <div id="video-transfer">
+          <div className="flex-column" id="video">
+            <iframe src="C:\Users\haika\Documents\React JS\GMAT-Turki-2022\src\Component\newArduino\index.html" id="" title="upload"></iframe>
+            {/* <button onclick={window.open("192.168.0.5")}>UPLOAD</button> */}
+          </div>
+              
+        </div>
       </div>
-    </div>
-    )
+      );
+  }
 }
-export default Statusbaru;
+// const Statusbar = () =>{
+//   var today = new Date();
+//   var date = String(today.getMonth() + 1).padStart(2, '0')+'/'+String(today.getDate()).padStart(2, '0')+'/'+today.getFullYear();
+//   var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+//     return(
+    
+//     )
+// }
+export default Statusbar;

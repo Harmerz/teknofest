@@ -1,5 +1,5 @@
 import './App.css';
-import Statusbaru from './Component/statusbar'
+import Statusbar from './Component/statusbar'
 import CardPertama from './Component/cardpertama';
 import GPS from './Component/gps';
 import StatusContainer from './Component/status_container';
@@ -8,7 +8,6 @@ import Gyro from './Component/gyro';
 import CardKedua from './Component/cardkedua';
 import Raw from './Component/raw';
 import RawData from './Component/Data/raw';
-// import AltitudeLogo from './LOGO SVG/Altitude.svg';
 import {GyroData,Pressure,Temperature,Voltage,Descentrate,Spinrate,AltitudeDifference,Altitude} from './Component/Data/datain';
 import {Updatealtitude,Updatealtitudedifference,Updatedescentrate,Updategyro,Updatepressure,Updatespinrate,Updatetemperature,Updatevoltage} from './Component/Data/datain';
 import Video from './Component/video';
@@ -18,14 +17,13 @@ import PressureLogo from './SVG/Pressure.svg';
 import SpiningLogo from './SVG/Spining.svg';
 import TemperatureLogo from './SVG/Temperature.svg';
 import VoltLogo from './SVG/Volt.svg';
-import Webcam from 'react-webcam';
 
 
 RawData()
 function App() {
   return (
     <div class="flex-row">
-      <Statusbaru/>
+      <Statusbar />
       <div class="flex-column" id="map-video">
         <StatusContainer/>
         <GPS/>
