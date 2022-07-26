@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+    
     <App />
 );
 // console.log(Math.floor(Math.random() * 100))

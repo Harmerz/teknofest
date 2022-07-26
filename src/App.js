@@ -1,5 +1,5 @@
 import './App.css';
-import Statusbar from './Component/statusbar'
+import Statusbar, {Tool, Upload} from './Component/statusbar'
 import CardPertama from './Component/cardpertama';
 import GPS from './Component/gps';
 import StatusContainer from './Component/status_container';
@@ -23,7 +23,11 @@ RawData()
 function App() {
   return (
     <div class="flex-row">
-      <Statusbar />
+      <div className='flex-column'>
+        <Statusbar />
+        <Tool />
+        <Upload />
+      </div>
       <div class="flex-column" id="map-video">
         <StatusContainer/>
         <GPS/>

@@ -4,6 +4,34 @@ import LoginLogo from '../SVG/Login.svg';
 import LogoUGM from '../SVG/LogoUGM.svg';
 import UgrasenaLogo from '../SVG/Ugrasena.svg';
 import {isibagi} from './Data/raw'
+import commandServices from "../utils/services/command";
+
+export function Tool(){
+  return(
+    <div id="tools">  
+          <div class="flex-column" id="tools-flex">           
+            <p>Set UTC Time</p>
+            <button type="submit" class="button2" onClick={()=>commandServices.setTime}>Set</button>
+            <p>Manual Release</p>
+            <button  type="submit" class="button2" onClick={()=>commandServices.release}>Release</button>
+            <p>Reset Memory</p>
+            <button  type="submit" class="button2" onClick={()=>commandServices.reset}>Reset</button>
+            <p>CSV</p>
+            <button  type="submit" class="button2" onClick={()=>commandServices.download}>Download</button>
+          </div>
+        </div>
+  )
+}
+export function Upload(){
+  return(
+          <div id="video-transfer">
+            <div className="flex-column" id="video">
+              <iframe src="C:\Users\haika\Documents\React JS\GMAT-Turki-2022\src\Component\newArduino\index.html" id="" title="upload"></iframe>
+              {/* <button onclick={window.open("192.168.0.5")}>UPLOAD</button> */}
+            </div>    
+          </div>
+  )
+}
 
 class Statusbar extends Component{
   
@@ -51,66 +79,41 @@ class Statusbar extends Component{
   render(){
       return(
         <div class="flex-column" id="dashboard">
-        <div id="team-id">
-          <div class="flex-column">
-            <p id="tulisan">UGRASENA</p>
-            <div class="flex-row" id="foto">
-              <img src={UgrasenaLogo} alt="logo ugm" height="35px"/>
-              <img src={LogoUGM} alt="logo ugm" height="35px"/>
+          <div id="team-id">
+            <div class="flex-column">
+              <p id="tulisan">UGRASENA</p>
+              <div class="flex-row" id="foto">
+                <img src={UgrasenaLogo} alt="logo ugm" height="35px"/>
+                <img src={LogoUGM} alt="logo ugm" height="35px"/>
+              </div>
+            </div>
+            
+          </div>
+          <div class="utama">
+            <div id="port">
+              <div>
+                <p class="port-text">Port : </p>
+                <p class="port-text" id="connected">Connected </p>
+              </div>
+            </div>
+          </div>
+          <div id="status">
+            <div>
+              <p class="pengertian">TEAM ID</p>
+              <p class="penjelasan">{this.state.Id}</p>
+              <p class="pengertian">Date Misions</p>
+              <p class="penjelasan">{this.state.date}</p>
+              <p class="pengertian">Clock</p>
+              <p class="penjelasan">{this.state.time}</p>
+              <p class="pengertian">Packet Count</p>
+              <p class="penjelasan">{this.state.packet}</p>
+              <p class="pengertian">Mission Time</p>
+              <p class="penjelasan">{`${this.state.mission}`}</p>
+    
             </div>
           </div>
           
-        </div>
-        <div class="utama">
-          <div id="port">
-            <div>
-              <p class="port-text">Port : </p>
-              <p class="port-text" id="connected">Connected </p>
-            </div>
-          </div>
-        </div>
-        <div id="status">
-          <div>
-            <p class="pengertian">TEAM ID</p>
-            <p class="penjelasan">{this.state.Id}</p>
-            <p class="pengertian">Date Misions</p>
-            <p class="penjelasan">{this.state.date}</p>
-            <p class="pengertian">Clock</p>
-            <p class="penjelasan">{this.state.time}</p>
-            <p class="pengertian">Packet Count</p>
-            <p class="penjelasan">{this.state.packet}</p>
-            <p class="pengertian">Mission Time</p>
-            <p class="penjelasan">{`${this.state.mission}`}</p>
-  
-          </div>
-        </div>
-        <div id="tools">  
-          <div class="flex-column" id="tools-flex">
-            <p>Container Telemetry</p>
-            <label class="switch">
-              <input type="checkbox"/>
-              <span class="slider round"></span>
-            </label>
-           
-            <p>Set UTC Time</p>
-            <button type="submit" class="button2" onClick={console.log("test")}>Set</button>
-            <p>Manual Release</p>
-            <div class="button2">Release</div>
-            <p>Reset Memory</p>
-            <div class="button2">Reset</div>
-            <p>CSV</p>
-            <div class="button2">Download</div>
-            
-            
-          </div>
-        </div>
-        <div id="video-transfer">
-          <div className="flex-column" id="video">
-            <iframe src="C:\Users\haika\Documents\React JS\GMAT-Turki-2022\src\Component\newArduino\index.html" id="" title="upload"></iframe>
-            {/* <button onclick={window.open("192.168.0.5")}>UPLOAD</button> */}
-          </div>
-              
-        </div>
+          
       </div>
       );
   }
