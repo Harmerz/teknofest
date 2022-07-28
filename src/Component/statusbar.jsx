@@ -11,13 +11,13 @@ export function Tool(){
     <div id="tools">  
           <div class="flex-column" id="tools-flex">           
             <p>Set UTC Time</p>
-            <button type="submit" class="button2" onClick={()=>commandServices.setTime}>Set</button>
+            <button type="submit" class="button2" onClick={()=>commandServices.setTime()}>Set</button>
             <p>Manual Release</p>
-            <button  type="submit" class="button2" onClick={()=>commandServices.release}>Release</button>
+            <button  type="submit" class="button2" onClick={()=>commandServices.release()}>Release</button>
             <p>Reset Memory</p>
-            <button  type="submit" class="button2" onClick={()=>commandServices.reset}>Reset</button>
+            <button  type="submit" class="button2" onClick={()=>commandServices.reset()}>Reset</button>
             <p>CSV</p>
-            <button  type="submit" class="button2" onClick={()=>commandServices.download}>Download</button>
+            <button  type="submit" class="button2" onClick={()=>commandServices.download()}>Download</button>
           </div>
         </div>
   )
