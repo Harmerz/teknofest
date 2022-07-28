@@ -8,10 +8,11 @@ import GyroLogo from '../SVG/Gyro.svg';
 import { MeshoptDecoder } from "three/examples/jsm/libs/meshopt_decoder.module.js";
 
 
+
 var basetime = Date.now();
 
 // FPS
-var fps = 30;
+var fps = 15;
 const style = {
     width: 347,
     height: 365,
@@ -19,7 +20,7 @@ const style = {
 var i = 0;
 var catat = [];
 
-var fpsInterval = 1000/10;
+var fpsInterval = 1000/fps;
 var frameCount = 0;
 // var $results = $("#results");
 var fps, fpsInterval, startTime, now, then, elapsed;
@@ -39,14 +40,13 @@ export class TigaDimensi extends Component {
         this.sceneSetup();
         this.addLights();
         this.loadTheModel();
-        // setInterval(()=>{
-        //     this.startAnimationLoop();
-        // },1000)
+        
         this.draw();
         // window.addEventListener('resize', this.handleWindowResize);
     }
 
     sceneSetup = () => {
+        var today = new Date();
         this.xAwal = 0;
         this.yAwal = 0;
         this.zAwal = 0;
@@ -123,25 +123,38 @@ export class TigaDimensi extends Component {
     };
 
     draw = () => {
-        fpsInterval = 1000 / fps;
-        then = Date.now();
+        var today = new Date();
+        then = today.getTime();
         startTime = then;
-        console.log(startTime);
+        // console.log(startTime);
         this.startAnimationLoop();
-        this.renderer.render( this.scene, this.camera );
+        // this.renderer.render( this.scene, this.camera );
+        setInterval(()=>{
+            this.backAnimationLoop();
+        },1000);
     }
     
     startAnimationLoop = () => {
-        var today = new Date();
+        
         requestAnimationFrame(this.startAnimationLoop);
-        now = Date.now();
+        var today = new Date();
+        now = today.getTime();
         elapsed = now - then;
+       
         if (elapsed > fpsInterval) {
+            
+            // console.log("hrllo");
+            // console.log(elapsed);
             var sinceStart = now - startTime;
-            var currentFps = Math.round(1000 / (sinceStart / ++frameCount) * 100) / 100; 
+            var currentFps = (1000 / (sinceStart / ++frameCount) * 100) / 100;
+            var fixedFPS = currentFps.toFixed(2)
+            then = now - (elapsed % fpsInterval);
             this.setState({
-                cetak : String(currentFps) + " fps.",
+                cetak : String(fixedFPS) + " fps.",
             });
+            // i++;
+            // catat[today.getSeconds()] = i;
+            // console.log(catat[today.getSeconds()]-catat[today.getSeconds()-1]);
             if(this.props.Updatedata[0] === undefined){
                 this.props.Updatedata[0] = 0;
             }
@@ -149,20 +162,23 @@ export class TigaDimensi extends Component {
                 this.props.Updatedata[1] = 0;
             }
             if(this.props.Updatedata[2] === undefined){
-                this.props.Updatedata[2] = 0;
+                this.props.Updatedata[2] = 0;   
             }
-            let x = (this.props.Updatedata[0] - this.xAwal);
-            let y = (this.props.Updatedata[1] - this.yAwal);
-            let z = (this.props.Updatedata[2] - this.zAwal);
-            this.xAwal = this.props.Updatedata[0];
-            this.yAwal = this.props.Updatedata[1];
-            this.zAwal = this.props.Updatedata[2];
+            let x = ((this.props.Updatedata[0] - this.xAwal)/currentFps);
+            let y = ((this.props.Updatedata[1] - this.yAwal)/currentFps);
+            let z = ((this.props.Updatedata[2] - this.zAwal)/currentFps);
+            // console.log(catat[isibagi.packet-1]);
             this.scene.rotateX(x*Math.PI/180);
             this.scene.rotateY(y*Math.PI/180);
             this.scene.rotateZ(z*Math.PI/180);
-
-            then = now - (elapsed % fpsInterval);
+            // var today = new Date();
+            
+            // console.log(();
             this.renderer.render( this.scene, this.camera );
+            this.xAwal += x;
+            this.yAwal += y;
+            this.zAwal += z;
+            // console.log(this.zAwal);
             // this.scene.rotateX(-x*Math.PI/180);
             // this.scene.rotateY(-y*Math.PI/180);
             // this.scene.rotateZ(-z*Math.PI/180);
