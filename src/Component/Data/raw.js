@@ -9,7 +9,8 @@ socket.emit("hello from client", 5, "6", { 7: Uint8Array.from([8]) });
 
 export var isibagi;
 export var raw_data = [];
-
+var catatgyro = [];
+export let rolling;
 // receive a message from the server
 socket.on('PACKET', (args) => {
     console.log(args);
@@ -56,11 +57,13 @@ var gps2_longitude = 106.120;
 var testing = 1;
 let RawData = ()=>{
 
-    // let i=360,j=10  ;
+    // let i=0,j=0,k=0  ;
     // let team_id = '367772';
     // let packet = 0;
-    
+    // catatgyro[0] = 0;
+    // catatgyro[-1] = 0;
     // setInterval(function(){ 
+    //     k++;
     //     i+=10;
     //     var today = new Date();
     //     var date = String(today.getMonth() + 1).padStart(2, '0')+'/'+String(today.getDate()).padStart(2, '0')+'/'+today.getFullYear();
@@ -85,7 +88,7 @@ let RawData = ()=>{
     //     gps1_longitude.toFixed(6);
     //     let gps2_altitude = rand();
     //     let status = testing;
-    //     let pitch = i;
+    //     let pitch = j;
     //     let roll = i;
     //     let yaw = j;
     //     let spinrate = rand();
@@ -120,6 +123,9 @@ let RawData = ()=>{
     //     };
     //     contoh.toString();
     //     raw_data.push(contoh+" ");  
+    //     catatgyro[k] = isibagi.roll;
+        
+    //     rolling = catatgyro[k-2];
     // }, 1000);
    
     // return(isibagi);
@@ -129,7 +135,8 @@ setInterval(() => {
 },5000)
 
 setInterval(function(){
-    console.log(isibagi);
+    
+    // console.log(isibagi);
     // isibagi.voltage = 1;
     let satellite = isibagi.statusnow;
     // switch(isibagi.statusnow){
