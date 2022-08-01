@@ -26,7 +26,7 @@ export function Upload(){
   return(
           <div id="video-transfer">
             <div id="video">
-              <iframe src="https://192.168.0.5" id="iframe" title="upload"></iframe>
+              <iframe src="http://192.168.0.5" id="iframe" title="upload"></iframe>
               {/* <button onclick={window.open("192.16
               .8.0.5")}>UPLOAD</button> */}
             </div>    
