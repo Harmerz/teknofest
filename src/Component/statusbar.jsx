@@ -7,27 +7,27 @@ import commandServices from '../utils/services/command';
 
 // eslint-disable-next-line require-jsdoc
 export function Tool(){
-  return (
-    <div id="tools">
-      <div className="flex-column" id="tools-flex">
-        <p>Set UTC Time</p>
-        <button type="submit" className="button2" onClick={()=>commandServices.setTime()}>Set</button>
-        <p>Manual Release</p>
-        <button type="submit" className="button2" onClick={()=>commandServices.release()}>Release</button>
-        <p>Reset Memory</p>
-        <button type="submit" className="button2" onClick={()=>commandServices.reset()}>Reset</button>
-        <p>CSV</p>
-        <button type="submit" className="button2" onClick={()=>commandServices.download()}>Download</button>
-      </div>
-    </div>
-  );
+  return(
+    <div id="tools">  
+          <div class="flex-column" id="tools-flex">           
+            <p>Set UTC Time</p>
+            <button type="submit" class="button2" onClick={()=>commandServices.setTime()}>Set</button>
+            <p>Manual Release</p>
+            <button  type="submit" class="button2" onClick={()=>commandServices.release()}>Release</button>
+            <p>Manual Drive</p>
+            <button  type="submit" class="button2" onClick={()=>commandServices.reset()}>Drive</button>
+            <p>CSV</p>
+            <button  type="submit" class="button2" onClick={()=>commandServices.download()}>Download</button>
+          </div>
+        </div>
+  )
 }
 export function Upload(){
-  return (
-    <div id="video-transfer">
-      <div id="video">
-        <iframe src="https://192.168.0.5" id="iframe" title="upload"></iframe>
-        {/* <button onclick={window.open("192.16
+  return(
+          <div id="video-transfer">
+            <div id="video">
+              <iframe src="http://192.168.100.5" id="iframe" title="upload"></iframe>
+              {/* <button onclick={window.open("192.16
               .8.0.5")}>UPLOAD</button> */}
       </div>
     </div>
