@@ -14,8 +14,8 @@ export function Tool(){
             <button type="submit" class="button2" onClick={()=>commandServices.setTime()}>Set</button>
             <p>Manual Release</p>
             <button  type="submit" class="button2" onClick={()=>commandServices.release()}>Release</button>
-            <p>Reset Memory</p>
-            <button  type="submit" class="button2" onClick={()=>commandServices.reset()}>Reset</button>
+            <p>Manual Drive</p>
+            <button  type="submit" class="button2" onClick={()=>commandServices.reset()}>Drive</button>
             <p>CSV</p>
             <button  type="submit" class="button2" onClick={()=>commandServices.download()}>Download</button>
           </div>
