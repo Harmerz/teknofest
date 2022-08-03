@@ -9,7 +9,6 @@ import { MeshoptDecoder } from "three/examples/jsm/libs/meshopt_decoder.module.j
 
 
 
-var basetime = Date.now();
 
 // FPS
 var fps = 15;
@@ -17,13 +16,12 @@ const style = {
     width: 347,
     height: 365,
 };
-var i = 0;
-var catat = [];
+
 
 var fpsInterval = 1000/fps;
 var frameCount = 0;
 // var $results = $("#results");
-var fps, fpsInterval, startTime, now, then, elapsed;
+var startTime, now, then, elapsed;
 
 
 

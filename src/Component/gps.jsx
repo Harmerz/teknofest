@@ -1,6 +1,6 @@
-import React, {Component, useState} from "react";
+import React, {Component} from "react";
 import '../Style/gps.css'
-import { MapContainer, TileLayer,useMapEvents, Marker, Popup, CircleMarker} from 'react-leaflet'
+import { MapContainer, TileLayer,useMapEvents, CircleMarker} from 'react-leaflet'
 import { isibagi } from "./Data/raw";
 import MapLogo from '../SVG/map.svg';
 
@@ -16,7 +16,6 @@ var b=110.373108;
 
 //found our location
 function LocationMarker(props) {
-    const [position, setPosition] = useState(null)
     const map = useMapEvents({
         click() {
             map.fitBounds(props.tes)
@@ -149,7 +148,7 @@ class GPS extends Component {
                 </div>
             </div>
             <div className="leaflef-container">
-                 <MapContainer center={[a,b]} zoom={18} scrollWheelZoom={true}>
+                 <MapContainer center={[a,b]} zoom={18} scrollWheelZoom={true} maxZoom={16} minZoom={6}>
                     <LocationMarker tes={this.state.thisbound}/>
                     <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
