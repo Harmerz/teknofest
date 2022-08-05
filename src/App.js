@@ -7,7 +7,6 @@ import StatusPayload from './Component/status_payload';
 import Gyro, {TigaDimensi} from './Component/gyro';
 import CardKedua from './Component/cardkedua';
 import Raw from './Component/raw';
-import RawData from './Component/Data/raw';
 import {GyroData,Pressure,Temperature,Voltage,Descentrate,Spinrate,AltitudeDifference,Altitude} from './Component/Data/datain';
 import {Updatealtitude,Updatealtitudedifference,Updatedescentrate,Updategyro,Updatepressure,Updatespinrate,Updatetemperature,Updatevoltage} from './Component/Data/datain';
 import Video from './Component/video';
@@ -19,7 +18,6 @@ import TemperatureLogo from './SVG/Temperature.svg';
 import VoltLogo from './SVG/Volt.svg';
 
 
-RawData()
 function App() {
   return (
     <div class="flex-row">

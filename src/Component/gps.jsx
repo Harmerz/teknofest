@@ -148,7 +148,7 @@ class GPS extends Component {
                 </div>
             </div>
             <div className="leaflef-container">
-                 <MapContainer center={[a,b]} zoom={18} scrollWheelZoom={true} maxZoom={16} minZoom={6}>
+                 <MapContainer center={[a,b]} zoom={18} scrollWheelZoom={true}  minZoom={6}>
                     <LocationMarker tes={this.state.thisbound}/>
                     <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

@@ -94,7 +94,8 @@ class Statusbar extends Component{
           <div id="port">
             <div>
               <p className="port-text">Port : </p>
-              <p className="port-text" id="connected">Connected </p>
+              {isibagi.portStatus?<p className="port-text" id="connected">Connected </p>
+              :<p className="port-text" id="disconnected">Diconnected </p>}
             </div>
           </div>
         </div>

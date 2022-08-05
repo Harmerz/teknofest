@@ -12,7 +12,7 @@ export var raw_data = [];
 export let rolling;
 // receive a message from the server
 socket.on('PACKET', (args) => {
-    console.log(args);
+    console.log(args.system.portStatus);
   isibagi = {
     // dateTime = date+','+time;
         team_id : args.payload.teamId,
@@ -36,6 +36,7 @@ socket.on('PACKET', (args) => {
         roll : args.payload.roll,
         yaw : args.payload.yaw,
         spinrate : args.payload.spinRate,
+        portStatus : args.system.portStatus,
     };
     raw_data.push(args.payload.rawData, " ")
 });

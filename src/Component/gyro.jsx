@@ -11,7 +11,7 @@ import { MeshoptDecoder } from "three/examples/jsm/libs/meshopt_decoder.module.j
 
 
 // FPS
-var fps = 15;
+var fps = 30;
 const style = {
     width: 347,
     height: 365,
@@ -162,8 +162,8 @@ export class TigaDimensi extends Component {
             if(this.props.Updatedata[2] === undefined){
                 this.props.Updatedata[2] = 0;   
             }
-            let x = ((this.props.Updatedata[0] - this.xAwal)/currentFps);
-            let y = ((this.props.Updatedata[1] - this.yAwal)/currentFps);
+            let x = ((this.props.Updatedata[1] - this.xAwal)/currentFps);
+            let y = ((this.props.Updatedata[0] - this.yAwal)/currentFps);
             let z = ((this.props.Updatedata[2] - this.zAwal)/currentFps);
             // console.log(catat[isibagi.packet-1]);
             this.scene.rotateX(x*Math.PI/180);

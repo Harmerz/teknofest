@@ -76,6 +76,10 @@ body{
     color: #34FF22;
     margin-left: 0px;
 }
+#disconnected{
+    color: #FF5252;
+    margin-left: 0px;
+}
 #status{
     width: 159px;
     height: 300px;
