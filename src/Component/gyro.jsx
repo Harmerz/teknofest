@@ -11,7 +11,7 @@ import { MeshoptDecoder } from "three/examples/jsm/libs/meshopt_decoder.module.j
 
 
 // FPS
-var fps = 30;
+var fps = 25;
 const style = {
     width: 347,
     height: 365,

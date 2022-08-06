@@ -10,9 +10,16 @@ socket.emit("hello from client", 5, "6", { 7: Uint8Array.from([8]) });
 export var isibagi;
 export var raw_data = [];
 export let rolling;
+
 // receive a message from the server
 socket.on('PACKET', (args) => {
-    console.log(args.system.portStatus);
+    var portStatus;
+    console.log(args.broken);
+    if(args.system.portStatus){
+        portStatus = "Connected";
+    }else{
+        portStatus = "Disconnected";
+    }
   isibagi = {
     // dateTime = date+','+time;
         team_id : args.payload.teamId,
@@ -36,7 +43,7 @@ socket.on('PACKET', (args) => {
         roll : args.payload.roll,
         yaw : args.payload.yaw,
         spinrate : args.payload.spinRate,
-        portStatus : args.system.portStatus,
+        portStatus : portStatus,
     };
     raw_data.push(args.payload.rawData, " ")
 });

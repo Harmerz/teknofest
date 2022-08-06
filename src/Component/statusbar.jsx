@@ -41,16 +41,16 @@ class Statusbar extends Component{
     this.state = {
       date : "00:00:00",
       time : "00:00:00",
-      Id : "367772",
+      Id : "376737",
       packet : 0,
       mission : "00:00:00",
       millisecond : 0,
+      portStatus : "Disconnected",
     };
   }
 
 
   componentDidMount() {
-
     setInterval(
         () => this.tick(),
 
@@ -72,6 +72,7 @@ class Statusbar extends Component{
       Id : isibagi.team_id,
       packet : isibagi.packet,
       mission : String(h).padStart(2, '0')+":"+String(m).padStart(2, '0')+":"+String(s).padStart(2, '0'),
+      portStatus : isibagi.portStatus,
     });
   }
 
@@ -94,8 +95,7 @@ class Statusbar extends Component{
           <div id="port">
             <div>
               <p className="port-text">Port : </p>
-              {isibagi.portStatus?<p className="port-text" id="connected">Connected </p>
-              :<p className="port-text" id="disconnected">Diconnected </p>}
+             <p className="port-text" id={this.state.portStatus}>{this.state.portStatus}</p>
             </div>
           </div>
         </div>
