@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import ReactDOM from "react-dom";
 import * as THREE from 'three';
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 import Grafik from "./Data/grafik";
@@ -20,7 +19,6 @@ const style = {
 
 var fpsInterval = 1000/fps;
 var frameCount = 0;
-// var $results = $("#results");
 var startTime, now, then, elapsed;
 
 
@@ -89,7 +87,7 @@ export class TigaDimensi extends Component {
                 gltf.scene.position.set( -c.x, ((size.y / 2) - c.y)-50, -c.z ); // center the gltf scene
                 modelLh.add( gltf.scene );
                 modelLh.rotateX(90*Math.PI/180);
-                const axesHelper = new THREE.AxesHelper( 500 );
+                // const axesHelper = new THREE.AxesHelper( 500 );
 
                 // this.scene.add( axesHelper );
                 this.scene.add( modelLh );
@@ -140,7 +138,9 @@ export class TigaDimensi extends Component {
         elapsed = now - then;
        
         if (elapsed > fpsInterval) {
-            
+            var xtemp;
+            var ytemp;
+            var ztemp;
             // console.log("hrllo");
             // console.log(elapsed);
             var sinceStart = now - startTime;
@@ -169,17 +169,48 @@ export class TigaDimensi extends Component {
             this.scene.rotateX(x*Math.PI/180);
             this.scene.rotateY(y*Math.PI/180);
             this.scene.rotateZ(z*Math.PI/180);
-            // var today = new Date();
-            
-            // console.log(();
+
             this.renderer.render( this.scene, this.camera );
             this.xAwal += x;
             this.yAwal += y;
             this.zAwal += z;
-            // console.log(this.zAwal);
-            // this.scene.rotateX(-x*Math.PI/180);
-            // this.scene.rotateY(-y*Math.PI/180);
-            // this.scene.rotateZ(-z*Math.PI/180);
+            
+            if(this.xAwal % 360 > 180){
+                xtemp = (this.xAwal % 360) - 360;
+            }else if(this.xAwal % 360 < -180){
+                xtemp = (this.xAwal % 360) + 360;
+            }else{
+                xtemp = (this.xAwal % 180);
+            }
+         
+            //for y axis
+            if(this.yAwal % 360 > 180){
+                ytemp = (this.yAwal % 360) - 360;
+            }else if(this.yAwal % 360 < -180){
+                ytemp = (this.yAwal % 360) + 360;
+            }else{
+                ytemp = (this.yAwal % 180);
+            }
+
+            //for z axis
+            if(this.zAwal % 360 > 180){
+                ztemp = (this.zAwal % 360) - 360;
+            }else if(this.zAwal % 360 < -180){
+                ztemp = (this.zAwal % 360) + 360;
+            }else{
+                ztemp = (this.zAwal % 180);
+            }
+
+            if((this.scene.rotation.x*180/Math.PI).toFixed(3) !== xtemp.toFixed(3)){
+                this.scene.rotation.x = xtemp;
+            }
+            if((this.scene.rotation.y*180/Math.PI).toFixed(3) !== ytemp.toFixed(3)){
+                this.scene.rotation.y = ytemp;
+            }
+            if((this.scene.rotation.z*180/Math.PI).toFixed(3) !== ztemp.toFixed(3)){
+                this.scene.rotation.z = ztemp;
+                console.log("beda");
+            }
             
         }
         // slowly rotate an object

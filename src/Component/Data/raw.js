@@ -13,8 +13,8 @@ export let rolling;
 
 // receive a message from the server
 socket.on('PACKET', (args) => {
-    var portStatus;
-    console.log(args.broken);
+    var portStatus = "Disconnected";
+    console.log(args);
     if(args.system.portStatus){
         portStatus = "Connected";
     }else{
