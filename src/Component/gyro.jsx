@@ -10,7 +10,7 @@ import { MeshoptDecoder } from "three/examples/jsm/libs/meshopt_decoder.module.j
 
 
 // FPS
-var fps = 25;
+var fps = 15;
 const style = {
     width: 347,
     height: 365,
@@ -42,7 +42,6 @@ export class TigaDimensi extends Component {
     }
 
     sceneSetup = () => {
-        var today = new Date();
         this.xAwal = 0;
         this.yAwal = 0;
         this.zAwal = 0;
