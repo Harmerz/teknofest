@@ -7,13 +7,6 @@ import MapLogo from '../SVG/map.svg';
 const fillBlueOptions = { fillColor: '#96A0FF' }
 const fillRedOptions = { fillColor: '#FF5252' }
 
-
-
-
-var a=-7.759029;
-var b=110.373108;
-
-
 //found our location
 function LocationMarker(props) {
     const map = useMapEvents({
@@ -148,11 +141,12 @@ class GPS extends Component {
                 </div>
             </div>
             <div className="leaflef-container">
-                 <MapContainer center={[a,b]} zoom={18} scrollWheelZoom={true}  minZoom={6}>
+                 <MapContainer center={[38.749500, 33.178653]} zoom={18} scrollWheelZoom={true}  minZoom={6} maxZoom={16}>
                     <LocationMarker tes={this.state.thisbound}/>
                     <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    // change a folder maps
+                    url="./TuzGolu/{z}/{x}/{y}.png"
                     />
                     <CircleMarker center={[this.state.container_lat, this.state.container_long]} fillOpacity="1" pathOptions={fillRedOptions}  color="#FF5252" radius={5} />
                     <CircleMarker center={[this.state.payload_lat, this.state.payload_long]} fillOpacity="1" pathOptions={fillBlueOptions} color="#96A0FF" radius={5} />

@@ -14,6 +14,7 @@
     "axios": "^0.27.2",
     "echarts": "^5.3.3",
     "echarts-for-react": "^3.0.2",
+    "express": "^4.18.1",
     "gltfpack": "^0.17.0",
     "leaflet": "^1.8.0",
     "leaflet.offline": "^2.2.0",
