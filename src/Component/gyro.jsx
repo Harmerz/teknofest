@@ -124,10 +124,7 @@ export class TigaDimensi extends Component {
         startTime = then;
         // console.log(startTime);
         this.startAnimationLoop();
-        // this.renderer.render( this.scene, this.camera );
-        setInterval(()=>{
-            this.backAnimationLoop();
-        },1000);
+
     }
     
     startAnimationLoop = () => {
