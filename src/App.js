@@ -20,22 +20,22 @@ import VoltLogo from './SVG/Volt.svg';
 
 function App() {
   return (
-    <div class="flex-row">
+    <div className="flex-row">
       <div className='flex-column'>
         <Statusbar />
         <Tool />
         <Upload />
       </div>
-      <div class="flex-column" id="map-video">
+      <div className="flex-column" id="map-video">
         <StatusContainer/>
         <GPS/>
-        <div class="flex-column">
-          <div class="flex-row">
+        <div className="flex-column">
+          <div className="flex-row">
             <Video />
             <CardPertama Logo={PressureLogo} Nama="PRESSURE" Isidata={Pressure} Updatedata={Updatepressure} satuan=" Pa"/>
             
           </div>
-          <div class="flex-row">
+          <div className="flex-row">
             <CardPertama Logo={AltitudeLogo} Nama="ALTITUDE" Isidata={Altitude} Updatedata={Updatealtitude} satuan=" m" />
             <CardPertama Logo={AltitudeLogo} Nama="ALTITUDE DIFFERENCE" Isidata={AltitudeDifference} Updatedata={Updatealtitudedifference} satuan=" m" />
           </div>
@@ -43,18 +43,18 @@ function App() {
       </div>
 
 
-      <div class="flex-column" id="gyro-raw">
+      <div className="flex-column" id="gyro-raw">
         <StatusPayload/>
         <div id='gyro' className='flex-row'>
           <Gyro Isidata={GyroData} Updatedata={Updategyro}/>
           <TigaDimensi Updatedata={Updategyro}/>
         </div>
-        <div class="flex-column" id="card-kanan">
-          <div class="flex-row">
+        <div className="flex-column" id="card-kanan">
+          <div className="flex-row">
             <CardKedua Logo={TemperatureLogo} Nama="TEMPERATURE" Isidata={Temperature} Updatedata={Updatetemperature} satuan=" °C"/>
             <CardKedua Logo={SpiningLogo} Nama="SPIN RATE" Isidata={Spinrate} Updatedata={Updatespinrate}/>
           </div>
-          <div class="flex-row">
+          <div className="flex-row">
             <CardKedua Logo={VoltLogo} Nama="VOLTAGE" Isidata={Voltage} Updatedata={Updatevoltage} satuan=" V"/>
             <CardKedua Logo={DescentLogo} Nama="DESCENT RATE" Isidata={Descentrate} Updatedata={Updatedescentrate} satuan=" m/s"/>
           </div>
