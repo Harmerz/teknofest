@@ -80,6 +80,22 @@ body{
     color: #FF5252;
     margin-left: 0px;
 }
+#GET-DATA{
+    color: #34FF22;
+    font-family: 'Roboto';
+    font-style: bold;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+}
+#BROKEN{
+    color: #FF5252;
+    font-family: 'Roboto';
+    font-style: bold;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+}
 #status{
     width: 159px;
     height: 300px;
@@ -98,7 +114,6 @@ body{
     font-style: normal;
     align-items: center;
     text-align: center;
-    color: #000000;
 }
 .pengertian{
     font-weight: 400;

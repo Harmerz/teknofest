@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import '../Style/statusbar.css';
 import LogoUGM from '../SVG/LogoUGM.svg';
 import UgrasenaLogo from '../SVG/Ugrasena.svg';
-import {isibagi} from './Data/raw';
+import {isibagi, port, broken} from './Data/raw';
 import commandServices from '../utils/services/command';
 
 // eslint-disable-next-line require-jsdoc
@@ -46,6 +46,7 @@ class Statusbar extends Component{
       mission : "00:00:00",
       millisecond : 0,
       portStatus : "Disconnected",
+      broken: "",
     };
   }
 
@@ -72,7 +73,8 @@ class Statusbar extends Component{
       Id : isibagi.team_id,
       packet : isibagi.packet,
       mission : String(h).padStart(2, '0')+":"+String(m).padStart(2, '0')+":"+String(s).padStart(2, '0'),
-      portStatus : isibagi.portStatus,
+      portStatus : port.portStatus,
+      broken : broken,
     });
   }
 
@@ -111,6 +113,7 @@ class Statusbar extends Component{
             <p className="penjelasan">{this.state.packet}</p>
             <p className="pengertian">Mission Time</p>
             <p className="penjelasan">{`${this.state.mission}`}</p>
+            <p id={this.state.broken}>{this.state.broken}</p>
 
           </div>
         </div>

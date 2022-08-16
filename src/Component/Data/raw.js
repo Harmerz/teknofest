@@ -10,41 +10,53 @@ socket.emit("hello from client", 5, "6", { 7: Uint8Array.from([8]) });
 export var isibagi;
 export var raw_data = [];
 export let rolling;
+export var port;
+export var broken;
 
 // receive a message from the server
 socket.on('PACKET', (args) => {
-    var portStatus = "Disconnected";
-    console.log(args);
-    if(args.system.portStatus){
-        portStatus = "Connected";
+    var iniportStatus = "Disconnected";
+    // console.log(args);
+    if(args.system.portStatus === true){
+        iniportStatus = "Connected";
     }else{
-        portStatus = "Disconnected";
+        iniportStatus = "Disconnected";
     }
-  isibagi = {
-    // dateTime = date+','+time;
-        team_id : args.payload.teamId,
-        packet : args.payload.packetNumber,
-        pressure1 : args.payload.pressure1,
-        pressure2 : args.payload.pressure2,
-        altitude1 : args.payload.altitude1,
-        altitude2 : args.payload.altitude2,
-        altitudediff : args.payload.altitudeDifference,
-        descent : args.payload.descentRate,
-        temp : args.payload.temp,
-        voltage : args.payload.voltageLevel,
-        gps1_latitude : args.payload.gps1Latitude,
-        gps1_longitude : args.payload.gps1Longtitude,
-        gps1_altitude : args.payload.gps1Altitude,
-        gps2_latitude : args.payload.gps2Latitude,
-        gps2_longitude : args.payload.gps2Longtitude,
-        gps2_altitude : args.payload.gps2Altitude,
-        statusnow : args.payload.satStatus,
-        pitch : args.payload.pitch,
-        roll : args.payload.roll,
-        yaw : args.payload.yaw,
-        spinrate : args.payload.spinRate,
-        portStatus : portStatus,
-    };
+   port = {
+    portStatus : iniportStatus,
+   }
+//    console.log(args.broken.msg);
+    if(args.payload == null){
+        broken = "BROKEN";
+    }else{
+        broken = "GET-DATA";
+    }
+    isibagi = {
+        // dateTime = date+','+time;
+            team_id : args.payload.teamId,
+            packet : args.payload.packetNumber,
+            pressure1 : args.payload.pressure1,
+            pressure2 : args.payload.pressure2,
+            altitude1 : args.payload.altitude1,
+            altitude2 : args.payload.altitude2,
+            altitudediff : args.payload.altitudeDifference,
+            descent : args.payload.descentRate,
+            temp : args.payload.temp,
+            voltage : args.payload.voltageLevel,
+            gps1_latitude : args.payload.gps1Latitude,
+            gps1_longitude : args.payload.gps1Longtitude,
+            gps1_altitude : args.payload.gps1Altitude,
+            gps2_latitude : args.payload.gps2Latitude,
+            gps2_longitude : args.payload.gps2Longtitude,
+            gps2_altitude : args.payload.gps2Altitude,
+            statusnow : args.payload.satStatus,
+            pitch : args.payload.pitch,
+            roll : args.payload.roll,
+            yaw : args.payload.yaw,
+            spinrate : args.payload.spinRate,
+        };
+  console.log(isibagi);
+    
     raw_data.push(args.payload.rawData, " ")
 });
 let RawData = ()=>{
