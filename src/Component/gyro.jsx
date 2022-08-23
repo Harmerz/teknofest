@@ -199,19 +199,16 @@ export class TigaDimensi extends Component {
             }
 
             if((this.scene.rotation.x*180/Math.PI).toFixed(3) !== xtemp.toFixed(3)){
-                this.scene.rotation.x = xtemp;
                 this.setState({
                     refresh : "Gyro Berbeda, Tolong Refresh",
                 });
             }
             if((this.scene.rotation.y*180/Math.PI).toFixed(3) !== ytemp.toFixed(3)){
-                this.scene.rotation.y = ytemp;
                 this.setState({
                     refresh : "Gyro Berbeda, Tolong Refresh",
                 });
             }
             if((this.scene.rotation.z*180/Math.PI).toFixed(3) !== ztemp.toFixed(3)){
-                this.scene.rotation.z = ztemp;
                 this.setState({
                     refresh : "Gyro Berbeda, Tolong Refresh",
                 });
