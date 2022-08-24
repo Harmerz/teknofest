@@ -10,14 +10,12 @@ export function Tool(){
   return(
     <div id="tools">  
           <div class="flex-column" id="tools-flex">           
-            <p>Set UTC Time</p>
-            <button type="submit" class="button2" onClick={()=>commandServices.setTime()}>Set</button>
+            
             <p>Manual Release</p>
             <button  type="submit" class="button2" onClick={()=>commandServices.release()}>Release</button>
             <p>Manual Drive</p>
             <button  type="submit" class="button2" onClick={()=>commandServices.reset()}>Drive</button>
-            <p>CSV</p>
-            <button  type="submit" class="button2" onClick={()=>commandServices.download()}>Download</button>
+          
           </div>
         </div>
   )
@@ -47,6 +45,7 @@ class Statusbar extends Component{
       millisecond : 0,
       portStatus : "Disconnected",
       broken: "",
+      jam: 34380,
     };
   }
 
@@ -60,9 +59,11 @@ class Statusbar extends Component{
   }
 
   tick() {
-    var today = new Date();
-    var date = String(today.getMonth() + 1).padStart(2, '0')+'/'+String(today.getDate()).padStart(2, '0')+'/'+today.getFullYear();
-    var time = String(today.getHours()).padStart(2, '0') + ":" + String(today.getMinutes()).padStart(2, '0') + ":" + String(today.getSeconds()).padStart(2, '0');
+    var date = "08/23/2022"
+    var h1 = Math.floor(this.state.jam / 3600);
+    var m1 = Math.floor(this.state.jam % 3600 / 60);
+    var s1 = Math.floor(this.state.jam % 3600 % 60);
+    var time = String(h1).padStart(2, '0')+":"+String(m1).padStart(2, '0')+":"+String(s1).padStart(2, '0');
     var d = isibagi.packet;
     var h = Math.floor(d / 3600);
     var m = Math.floor(d % 3600 / 60);
@@ -75,7 +76,8 @@ class Statusbar extends Component{
       mission : String(h).padStart(2, '0')+":"+String(m).padStart(2, '0')+":"+String(s).padStart(2, '0'),
       portStatus : port.portStatus,
       broken : broken,
-    });
+      jam : this.state.jam + 1,
+        });
   }
 
 

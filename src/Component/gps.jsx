@@ -141,18 +141,18 @@ class GPS extends Component {
                 </div>
             </div>
             <div className="leaflef-container">
-                 <MapContainer center={[38.749500, 33.178653]} zoom={18} scrollWheelZoom={true}  minZoom={6} maxZoom={16}>
+                 <MapContainer center={[38.399269, 33.711887]} zoom={12} scrollWheelZoom={true}  minZoom={6} maxZoom={16}>
                     <LocationMarker tes={this.state.thisbound}/>
                     <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     // change a folder maps
-                    url="./TuzGolu/{z}/{x}/{y}.png"
+                    // url="./TuzGolu/{z}/{x}/{y}.png"
                     
                     //aksaray-ankara maps
                     // url="./Aksaray/{z}/{x}/{y}.png"
 
                     //online map
-                    // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                     <CircleMarker center={[this.state.container_lat, this.state.container_long]} fillOpacity="1" pathOptions={fillRedOptions}  color="#FF5252" radius={5} />
                     <CircleMarker center={[this.state.payload_lat, this.state.payload_long]} fillOpacity="1" pathOptions={fillBlueOptions} color="#96A0FF" radius={5} />

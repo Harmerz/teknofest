@@ -16,10 +16,12 @@ import PressureLogo from './SVG/Pressure.svg';
 import SpiningLogo from './SVG/Spining.svg';
 import TemperatureLogo from './SVG/Temperature.svg';
 import VoltLogo from './SVG/Volt.svg';
-
+import RawData from './Component/Data/raw';
 
 function App() {
+  RawData();
   return (
+    
     <div className="flex-row">
       <div className='flex-column'>
         <Statusbar />
